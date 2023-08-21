@@ -6,7 +6,7 @@
         <x-tabs.title wire:click="tab('t2')" id="t2" :title="__('Vehicle Information')" :iconclass="$icon" :active="$tab" />
         @php $icon = $captain->vehicles->first()->status_image ? 'fas fa-check' : 'fas fa-car-alt' @endphp
         <x-tabs.title wire:click="tab('t3')" id="t3" :title="__('Vehicle Images')" :iconclass="$icon" :active="$tab" />
-        @php $icon = $captain->bankAccounts->first()->status? 'fas fa-check' : 'fas fa-credit-card' @endphp
+        @php $icon = $captain->bankAccounts?->first()?->status? 'fas fa-check' : 'fas fa-credit-card' @endphp
         <x-tabs.title wire:click="tab('t4')" id="t4" :title="__('Bank')" :iconclass="$icon" :active="$tab" />
         @php $icon = $captain->status  > 3 ? 'fas fa-check' : 'fas fa-file' @endphp
         <x-tabs.title wire:click="tab('t5')" id="t5" :title="__('Extra Files')" :iconclass="$icon" :active="$tab" />

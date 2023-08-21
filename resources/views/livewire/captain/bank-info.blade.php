@@ -1,5 +1,5 @@
 <form wire:submit.prevent="save">
-
+    @if($bank)
     <div class="d-flex flex-wrap">
         <x-form.input wire:model.lazy="bank_name" name="bank_name" :label="__('Bank Name')" :placeholder="__('Bank Name')" wrapperClasses="md:w-1/3 xs:w-1 pr-5"/>
         <x-form.input wire:model.lazy="iban_number" name="iban_number" :label="__('Iban Number')" :placeholder="__('Iban Number')" wrapperClasses="md:w-1/3 xs:w-1 pr-5"/>
@@ -11,5 +11,5 @@
         <x-buttons.submit target="save" >{{ __('Save') }}</x-buttons.submit>
         <x-buttons.save wire:click="activate" target="activate" >{{ __('Accept') }}</x-buttons.save>
     </div>
-
+    @endif
 </form>

@@ -19,10 +19,13 @@ class BankInfo extends Component
     {
         $this->captain = $captain;
         $this->bank = $captain->bankAccounts->first();
-        $this->bank_name = $this->bank->bank_name;;
-        $this->iban_number = $this->bank->iban_number;;
-        $this->account_name = $this->bank->account_name;;
-        $this->account_number = $this->bank->account_number;;
+        if($this->bank){
+            $this->bank_name = $this->bank->bank_name;
+            $this->iban_number = $this->bank->iban_number;
+            $this->account_name = $this->bank->account_name;
+            $this->account_number = $this->bank->account_number;
+        }
+
     }
 
     public function save()
@@ -34,7 +37,10 @@ class BankInfo extends Component
             'account_number' => 'required|min:20|max:191',
         ]);
 
-        $this->bank->update($data);
+        if($this->bank){
+            $this->bank->update($data);
+        }
+
 
         $this->emit('refresh-captain');
         $this->alertSuccess(__('Created Successfully.'));
