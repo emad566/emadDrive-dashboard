@@ -88,9 +88,9 @@ class Captain extends Authenticatable
      *
      * @return void
      */
-    public function bankCard()
+    public function bankAccounts()
     {
-        return $this->hasMany(CaptainBankCard::class);
+        return $this->hasMany(CaptainBankAccount::class);
     }
     /**
      * Get documents for the Captain Document

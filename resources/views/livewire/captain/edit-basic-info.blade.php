@@ -4,10 +4,10 @@
     </div>
 
     <div class="d-flex justify-content-between pb-7">
-       <x-images.card-image wrapperClass="pl-4 w-1/4" :src="asset('storage/'.$captain->national_id_front)" :title="__('National id front')"/>
-       <x-images.card-image wrapperClass="pl-4 w-1/4" :src="asset('storage/'.$captain->national_id_back)" :title="__('National id back')"/>
-       <x-images.card-image wrapperClass="pl-4 w-1/4" :src="asset('storage/'.$captain->driving_license_front)" :title="__('Driving license front')"/>
-       <x-images.card-image wrapperClass="pl-4 w-1/4" :src="asset('storage/'.$captain->driving_license_back)" :title="__('Driving license back')"/>
+       <x-images.card-image wrapperClass="pl-4 w-1/4" imgClass="h-140px" :src="asset('storage/'.$captain->national_id_front)" :title="__('National id front')"/>
+       <x-images.card-image wrapperClass="pl-4 w-1/4" imgClass="h-140px" :src="asset('storage/'.$captain->national_id_back)" :title="__('National id back')"/>
+       <x-images.card-image wrapperClass="pl-4 w-1/4" imgClass="h-140px" :src="asset('storage/'.$captain->driving_license_front)" :title="__('Driving license front')"/>
+       <x-images.card-image wrapperClass="pl-4 w-1/4" imgClass="h-140px" :src="asset('storage/'.$captain->driving_license_back)" :title="__('Driving license back')"/>
 
     </div>
 
