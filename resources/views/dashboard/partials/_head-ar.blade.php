@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    @vite('resources/css/app.css')
     <link href="{{asset('dashboard-assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('dashboard-assets/plugins/global/plugins.bundle.rtl.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('dashboard-assets/plugins/custom/prismjs/prismjs.bundle.rtl.css')}}" rel="stylesheet" type="text/css" />
@@ -16,6 +17,19 @@
     <link href="{{asset('dashboard-assets/css/themes/layout/aside/dark.rtl.css')}}" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="{{asset('dashboard-assets/media/logos/favicon.ico')}}" />
     <script src="{{asset('assets/lightbox/js/lightbox-plus-jquery.min.js')}}"></script>
+
+    {{-- Cairo Font  --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        body, html {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+    {{-- /Cairo Font  --}}
+
     @livewireStyles
 </head>
 @yield('styles')

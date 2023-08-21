@@ -15,7 +15,7 @@ class CreatePassengersTable extends Migration
     {
         Schema::create('passengers', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
+            $table->string('passenger_code')->unique();
             $table->string('full_name');
             $table->enum('gender',['male','female'])->nullable();
             $table->string('mobile')->unique();

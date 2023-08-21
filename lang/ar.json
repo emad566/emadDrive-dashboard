@@ -847,7 +847,7 @@
     "A new news has been added that you can review now.":"تم اضافه خبر جديد.",
     "Private License":"رخصة خاصة",
     "Public License":"رخصة عامة",
-    "Vehicle Driving Licence":"رخصة قيادة سيارة",
+    "Vehicle Driving license":"رخصة قيادة سيارة",
     "Motorbike License":"رخصة دراجة نارية",
     "Female":"انثي",
     "License Type":"نوع الرخصة",
@@ -1061,5 +1061,15 @@
     "amount should less than passenger paid":"القيمة يجب ان لا تكون اكبر الذي رفعه الراكب",
     "Refund Successfully.":"تم رد الأموال بنجاح.",
     "We care about you": "نحن نهتم بك",
-    "We noticed that you did not accepted trips during the past time, so you want be offline" : "لاحظنا عدم استقبالك للرحلات خلال الوقت الماضي لذلك هل تريد ان تصبح اوفلاين ؟"
+    "We noticed that you did not accepted trips during the past time, so you want be offline" : "لاحظنا عدم استقبالك للرحلات خلال الوقت الماضي لذلك هل تريد ان تصبح اوفلاين ؟",
+    "Device Type": "الحهاز",
+    "National expiry date": "تاريخ انتهاء الرقم القومي",
+    "License expiry date": "تاريخ انتهاء رخصة القيادة",
+    "Register step": "مرحلة التسجيل",
+    "Enabled": "متاح",
+    "Registration plate": "رقم السيارة",
+    "Model date": "سنة الموديل",
+    "Vehicle license expire date": "تاريخ انتهاء رخصة السيارة",
+    "Activate": "تفعيل",
+    "Accept": "موافق"
 }

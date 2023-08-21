@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <link rel="stylesheet" href="{{ asset('assets/lightbox/css/lightbox.min.css')}}">
+    @vite('resources/css/app.css')
     <link href="{{ asset('dashboard-assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard-assets/plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard-assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
@@ -13,6 +14,7 @@
     <link href="{{ asset('dashboard-assets/css/themes/layout/brand/dark.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard-assets/css/themes/layout/aside/dark.css') }}" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="{{ asset('dashboard-assets/media/logos/favicon.ico') }}" />
+
     @livewireStyles
     @stack('styles')
 </head>

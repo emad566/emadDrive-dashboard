@@ -13,13 +13,24 @@ class CreateCaptainVehiclesTable extends Migration
      */
     public function up()
     {
-    
+
         Schema::create('captain_vehicles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('captain_id');
             $table->string('registration_plate')->nullable();
+            $table->string('brand')->nullable();
             $table->string('model')->nullable();
+            $table->string('model_date')->nullable();
             $table->string('color')->nullable();
+            $table->string('vehicle_front')->nullable();
+            $table->string('vehicle_back')->nullable();
+            $table->string('vehicle_left')->nullable();
+            $table->string('vehicle_right')->nullable();
+            $table->string('vehicle_front_seat')->nullable();
+            $table->string('vehicle_back_seat')->nullable();
+            $table->string('vehicle_license_front')->nullable();
+            $table->string('vehicle_license_back')->nullable();
+            $table->string('vehicle_license_expire_date')->nullable();
             $table->boolean('is_default')->default(false);
             $table->boolean('status')->default(false);
             $table->boolean('status_image')->default(false);

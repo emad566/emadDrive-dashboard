@@ -20,11 +20,12 @@ Route::get('/', function () {
 })->name('home');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
-    Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
+    Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
     // Localization En Ar from file ar.json
     Route::get('lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
 
+    Route::resource('captains', CaptainController::class);
 });
 
 

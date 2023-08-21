@@ -850,7 +850,7 @@
     "A new news has been added that you can review now.":"A new news has been added that you can review now.",
     "Private License":"Private License",
     "Public License":"Public License",
-    "Vehicle Driving Licence":"Vehicle Driving Licence",
+    "Vehicle Driving license":"Vehicle Driving license",
     "Motorbike License":"Motorbike License",
     "Female":"Female",
     "License Type":"License Type",
@@ -1065,5 +1065,15 @@
     "amount should less than passenger paid":"Amount should not greater than passenger paid",
     "Refund Successfully.":"Refund Successfully.",
     "We care about you": "We care about you",
-    "We noticed that you did not accepted trips during the past time, so you want be offline" : "We noticed that you did not accepted trips during the past time, so you want be offline ?"
+    "We noticed that you did not accepted trips during the past time, so you want be offline" : "We noticed that you did not accepted trips during the past time, so you want be offline ?",
+    "Device Type": "Device type",
+    "National expiry date":  "National expiry date",
+    "License expiry date": "License expiry date",
+    "Register step":  "Register step",
+    "Enabled": "Enabled",
+    "Registration plate": "Registration plate",
+    "Model date": "Model date",
+    "Vehicle license expire date": "Vehicle license expire date",
+    "Accept": "Accept",
+    "Activate": "Activate"
 }

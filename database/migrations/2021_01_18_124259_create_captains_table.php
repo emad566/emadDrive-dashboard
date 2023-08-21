@@ -15,24 +15,31 @@ class CreateCaptainsTable extends Migration
     {
         Schema::create('captains', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
+            $table->string('captain_code')->unique();
             $table->string('full_name')->nullable();
             $table->enum('gender',['male','female'])->nullable();
             $table->date('birthday')->nullable();
             $table->string('mobile')->unique();
             $table->string('email')->unique()->nullable();
             $table->string('password')->nullable();
+            $table->string('city')->nullable();
             $table->timestamp('verified_at')->nullable();
             $table->string('avatar');
             $table->text('remember_token')->nullable();
             $table->text('device_token')->nullable();
-            $table->date('national_expiry_date')->nullable();;
-            $table->date('license_expiry_date')->nullable();
+            $table->text('device_id')->nullable();
+            $table->text('device_type')->nullable();
             $table->integer('register_step')->default(0);
             $table->float('rate')->nullable();
             $table->boolean('available')->default(false)->nullable();
             $table->boolean('suspend')->default(false);
             $table->string('lang')->default('ar');
+            $table->string('national_id_front');
+            $table->string('national_id_back');
+            $table->date('national_expiry_date')->nullable();
+            $table->string('driving_license_front');
+            $table->string('driving_license_back');
+            $table->date('license_expiry_date')->nullable();
             $table->boolean('is_dark_mode')->default(false);
             $table->integer('status')->default(0);
             $table->boolean('is_active')->default(false);

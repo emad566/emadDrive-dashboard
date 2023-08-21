@@ -43,7 +43,7 @@
                             <span class="navi-text text-muted text-hover-primary">{{Auth::user()->email}}</span>
                         </span>
                     </a>
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button href="" onclick="event.preventDefault();this.closest('form').submit();"  class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5"> {{ __('Logout')}}</button>
                     </form>

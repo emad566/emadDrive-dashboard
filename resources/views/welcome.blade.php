@@ -13,23 +13,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Page Custom Styles(used by this page)-->
-    <link href="{{asset('dashboardassets/assets/css/pages/login/classic/login-3.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('dashboard-assets/css/pages/login/classic/login-3.css')}}" rel="stylesheet" type="text/css" />
     <!--end::Page Custom Styles-->
     <!--begin::Global Theme Styles(used by all pages)-->
-    <link href="{{asset('dashboardassets/assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('dashboardassets/assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet"
+    <link href="{{asset('dashboard-assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('dashboard-assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet"
         type="text/css" />
-    <link href="{{asset('dashboardassets/assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('dashboard-assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
     <!--end::Global Theme Styles-->
     <!--begin::Layout Themes(used by all pages)-->
-    <link href="{{asset('dashboardassets/assets/css/themes/layout/header/base/light.css')}}" rel="stylesheet"
+    <link href="{{asset('dashboard-assets/css/themes/layout/header/base/light.css')}}" rel="stylesheet"
         type="text/css" />
-    <link href="{{asset('dashboardassets/assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet"
+    <link href="{{asset('dashboard-assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet"
         type="text/css" />
-    <link href="{{asset('dashboardassets/assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('dashboardassets/assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('dashboard-assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('dashboard-assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" />
     <!--end::Layout Themes-->
-    <link rel="shortcut icon" href="{{asset('dashboardassets/assets/media/logos/favicon.ico')}}" />
+    <link rel="shortcut icon" href="{{asset('dashboard-assets/media/logos/favicon.ico')}}" />
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -41,7 +41,7 @@
         <!--begin::Login-->
         <div class="login login-3 login-signin-on d-flex flex-row-fluid" id="kt_login">
             <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid"
-                style="background-image: url({{asset('dashboardassets/assets/media/bg/bg-1.jpg')}});">
+                style="background-image: url({{asset('dashboard-assets/media/bg/bg-1.jpg')}});">
                 <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
                     <!--begin::Login Header-->
                     <div class="d-flex flex-center mb-15">

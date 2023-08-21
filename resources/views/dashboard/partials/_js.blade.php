@@ -59,10 +59,75 @@
         "font-family": "Poppins"
     };
 </script>
+
+
 <script src="{{ asset('dashboard-assets/plugins/global/plugins.bundle.js') }}"></script>
 <script src="{{ asset('dashboard-assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
 <script src="{{ asset('dashboard-assets/js/scripts.bundle.js') }}"></script>
 <script src="{{ asset('dashboard-assets/js/pages/widgets.js') }}"></script>
 <script src="{{ asset('dashboard-assets/js/pages/crud/forms/widgets/bootstrap-select.js') }}"></script>
+
+
+{{-- lottie json --}}
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+{{-- pikaday --}}
+<script defer src="{{ asset('js/moment.js') }}"></script>
+<script defer src="{{ asset('js/pikaday.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/pikaday.css') }}">
+<script defer>
+    window.onload= function(){
+        var fields = document.querySelectorAll('input.pikaday');
+
+        for (var i = 0; i < fields.length; i++) {
+            var field = fields[i];
+            var picker = new Pikaday({
+                field: field,
+                format: 'Y-MM-DD',
+                onSelect: function() {}
+            });
+
+        }
+    }
+</script>
+{{-- /pikaday --}}
+
+{{-- toaster --}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    window.addEventListener('alert', event => {
+        toastr[event.detail.type](event.detail.message,
+            event.detail.title ?? ''), toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+
+        }
+    });
+</script>
+<style>
+    .toast-success{
+        background-image: none !important;
+        background-color: #f90 !important;
+    }
+
+
+
+    .rotate {
+        animation: rotation 1s infinite linear;
+    }
+
+    @keyframes rotation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+{{-- /toaster --}}
+
 @livewireScripts
 @yield('scripts')
+

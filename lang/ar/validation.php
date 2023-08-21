@@ -116,4 +116,12 @@ return array(
   'uploaded'             => 'فشل في تحميل الـ :attribute',
   'url'                  => 'صيغة الرابط :attribute غير صحيحة',
   'uuid' => ' :attribute must be a valid UUID.',
+
+    'attributes'=>[
+        'registration_plate' => 'رقم السيارة',
+        'brand' => 'الماركة',
+        'model' => 'الموديل',
+        'color' => 'اللون',
+        'model_date' => 'سنة الموديل',
+    ],
 );
