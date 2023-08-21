@@ -1,7 +1,7 @@
 <form wire:submit.prevent="save">
     <div class="d-flex flex-wrap">
 {{--        'captain_id', 'registration_plate', 'brand', 'model', 'color', 'model_date', 'status', 'is_default'--}}
-        <div class="d-flex flex-wrap justify-content-evenly">
+        <div class="d-flex flex-wrap justify-content-evenly w-100">
             <x-images.card-image wrapperClass="w-1/2 pb-10 pl-3" imgClass="h-275px" :src="asset('storage/'.$vehicle->vehicle_front)" :title="__('Vehicle license front')"/>
             <x-images.card-image wrapperClass="w-1/2 pb-10 pl-3" imgClass="h-275px" :src="asset('storage/'.$vehicle->vehicle_back)" :title="__('Vehicle license back')"/>
         </div>
