@@ -15,12 +15,14 @@
 
 
     <div class="card-body table-responsive">
-        <div class="form-group w-1/3 mr-0">
-            <div class="input-icon">
-                <input wire:model.debounce.500ms="search" type="text" class="form-control" placeholder="{{ __('Search') }} {{ __('Mobile') }} - {{ __('Full Name') }} ..."/>
-                <span><i class="flaticon2-search-1 icon-md"></i></span>
-            </div>
+        <div class="d-flex flex-wrap">
+            <x-form.input-icon wire.debounce.500ms="search" name="search" :label="__('Search')" placeholder="{{ __('Search') }} {{ __('Mobile') }} - {{ __('Full Name') }} ..." wrapperClasses="w-1/3 mr-0" icon="flaticon2-search-1 icon-md"/>
+            <x-form.select wire:model.lazy="selectStatus" name="selectStatus" :label="__('Status')" wrapperClasses="w-1/3 pr-5">
+                <x-options.captain-status />
+            </x-form.select>
         </div>
+
+
 
         <x-table.table>
             <x-slot name="head">
@@ -41,7 +43,11 @@
                         <x-table.cell>{{ \Carbon\Carbon::parse($captain->created_at)->diffForHumans(); }}</x-table.cell>
                         <x-table.cell>{{ $captain->created_at }}</x-table.cell>
                         <x-table.cell>
-                           @if($captain->register_step>2) <x-buttons.icon :url="route('captains.edit', $captain->id)" /> @endif
+                           @if($captain->register_step>1)
+                                <x-buttons.icon :url="route('captains.edit', $captain->id)" />
+                            @else
+                                <span class="label label-lg label-light-warning label-inline">{{ __('Registration') }}</span>
+                            @endif
                         </x-table.cell>
                     </x-table.row>
                 @endforeach

@@ -13,6 +13,7 @@ class Index extends Component
     public string $search = '';
     public string $sort_field = 'captain_code';
     public string $sort_direction = 'desc';
+    public string $selectStatus = 'all';
 
     protected $queryString = ['sort_field', 'sort_direction'];
 
@@ -26,15 +27,33 @@ class Index extends Component
         $this->sort_field = $sort_field;
     }
 
+    function search()
+    {
+        $captains = Captain::search('full_name', $this->search)
+            ->orSearch('mobile', $this->search)
+            ->orderBy($this->sort_field, $this->sort_direction);
+
+        if($this->selectStatus == 'active'){
+            $captains = $captains->where('is_active', 1);
+        }
+
+        if($this->selectStatus == 'underReview'){
+            $captains = $captains->where('is_active', 0)->where('register_step', '>', 1);
+        }
+
+        if($this->selectStatus == 'registration'){
+            $captains = $captains->where('register_step', '<', 2);
+        }
+
+        return $captains->paginate(10);
+    }
+
 
 
     public function render()
     {
         return view('livewire.captain.index', [
-            'captains'=>Captain::search('full_name', $this->search)
-                ->orSearch('mobile', $this->search)
-                ->orderBy($this->sort_field, $this->sort_direction)
-                ->paginate(10)
+            'captains'=> $this->search()
         ]);
     }
 }
