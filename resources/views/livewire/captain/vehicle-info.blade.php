@@ -2,8 +2,8 @@
     <div class="d-flex flex-wrap">
 {{--        'captain_id', 'registration_plate', 'brand', 'model', 'color', 'model_date', 'status', 'is_default'--}}
         <div class="d-flex flex-wrap justify-content-evenly">
-            <x-images.card-image wrapperClass="w-1/2 pb-10 pl-3" :src="asset('storage/'.$vehicle->vehicle_front)" :title="__('Vehicle license front')"/>
-            <x-images.card-image wrapperClass="w-1/2 pb-10 pl-3" :src="asset('storage/'.$vehicle->vehicle_back)" :title="__('Vehicle license back')"/>
+            <x-images.card-image wrapperClass="w-1/2 pb-10 pl-3" imgClass="h-275px" :src="asset('storage/'.$vehicle->vehicle_front)" :title="__('Vehicle license front')"/>
+            <x-images.card-image wrapperClass="w-1/2 pb-10 pl-3" imgClass="h-275px" :src="asset('storage/'.$vehicle->vehicle_back)" :title="__('Vehicle license back')"/>
         </div>
 
         <x-form.input required="*" wire:model.lazy="registration_plate" name="registration_plate" :label="__('Registration plate')" :placeholder="__('Registration plate')" wrapperClasses="w-1/3 pr-5"/>
