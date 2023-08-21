@@ -1075,5 +1075,18 @@
     "Model date": "Model date",
     "Vehicle license expire date": "Vehicle license expire date",
     "Accept": "Accept",
-    "Activate": "Activate"
+    "Activate": "Activate",
+    "National id front": "National id front",
+    "National id back": "National id back",
+    "Driving license front": "Driving license front",
+    "Driving license back": "Driving license back",
+    "Vehicle front": "Vehicle front",
+    "Vehicle back": "Vehicle back",
+    "Vehicle left": "Vehicle left",
+    "Vehicle right": "Vehicle right",
+    "Vehicle front seat": "Vehicle front seat",
+    "Vehicle back seat": "Vehicle back seat",
+    "Vehicle license front": "Vehicle license front",
+    "Vehicle license back": "Vehicle license back",
+    "": ""
 }

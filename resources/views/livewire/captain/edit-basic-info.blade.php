@@ -2,6 +2,15 @@
     <div class="d-flex flex-wrap">
         <x-infos.info :label="__('Register step')" :value="$captain->register_step . '/' . 4" />
     </div>
+
+    <div class="d-flex justify-content-between pb-7">
+       <x-images.card-image wrapperClass="pl-4 w-1/4" :src="asset('storage/'.$captain->national_id_front)" :title="__('National id front')"/>
+       <x-images.card-image wrapperClass="pl-4 w-1/4" :src="asset('storage/'.$captain->national_id_back)" :title="__('National id back')"/>
+       <x-images.card-image wrapperClass="pl-4 w-1/4" :src="asset('storage/'.$captain->driving_license_front)" :title="__('Driving license front')"/>
+       <x-images.card-image wrapperClass="pl-4 w-1/4" :src="asset('storage/'.$captain->driving_license_back)" :title="__('Driving license back')"/>
+
+    </div>
+
     <div class="d-flex flex-wrap">
         <x-form.input wire:model.lazy="full_name" name="full_name" :label="__('Full Name')" :placeholder="__('Full Name')" wrapperClasses="md:w-1/3 xs:w-1 pr-5"/>
         <x-form.input wire:model.lazy="mobile" name="mobile" :label="__('Mobile')" :placeholder="__('Mobile')" wrapperClasses="md:w-1/3 xs:w-1 pr-5" maxlength='11' minlength='11'/>

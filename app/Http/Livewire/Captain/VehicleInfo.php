@@ -41,9 +41,6 @@ class VehicleInfo extends Component
 
         $this->vehicle->update($data);
 
-
-        if($this->captain->status == 1) $this->captain->update(['status'=> 2]);
-
         $this->emit('refresh-captain');
         $this->alertSuccess(__('Created Successfully.'));
     }

@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class CaptainVehicle extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'captain_id', 'registration_plate', 'brand', 'model', 'color', 'model_date', 'status', 'is_default'
-    ];
+    protected $guarded = [];
 
     public $with = ['vehicleMedias'];
     public function scopeActive($query)
