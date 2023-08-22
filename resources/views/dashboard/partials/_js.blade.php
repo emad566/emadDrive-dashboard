@@ -1,4 +1,7 @@
-
+@php
+    $local = session()->get('locale');
+    if($local == null ) $local = 'en'
+@endphp
 <script>
     var KTAppSettings = {
         "breakpoints": {
@@ -97,11 +100,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
     window.addEventListener('alert', event => {
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            @if($local == 'en')
+            "positionClass" : "toast-top-right",
+            @else
+            "positionClass" : "toast-top-left",
+            @endif
+        }
+
         toastr[event.detail.type](event.detail.message,
             event.detail.title ?? ''), toastr.options = {
             "closeButton": true,
             "progressBar": true,
-
+            @if($local == 'en')
+                "positionClass" : "toast-top-right",
+            @else
+                "positionClass" : "toast-top-left",
+            @endif
         }
     });
 </script>
@@ -110,8 +127,12 @@
         background-image: none !important;
         background-color: #f90 !important;
     }
-
-
+    @if($local == 'ar')
+    .toast-close-button{
+        margin-left: 34px !important;
+        margin-right: 40px !important;
+    }
+    @endif
 
     .rotate {
         animation: rotation 1s infinite linear;

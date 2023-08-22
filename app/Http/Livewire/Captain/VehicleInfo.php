@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Captain;
 
+use App\Http\Controllers\General\OptionsController;
 use App\Http\Traits\Toast;
 use Livewire\Component;
 
@@ -15,6 +16,10 @@ class VehicleInfo extends Component
     public $model;
     public $color;
     public $model_date;
+
+    public $brands;
+    public $years;
+    public $colors;
     public function mount($captain)
     {
         $this->captain = $captain;
@@ -26,6 +31,11 @@ class VehicleInfo extends Component
         $this->color = $this->vehicle->color;
         $this->model_date = $this->vehicle->model_date;
         $this->vehicle_license_expire_date = $this->vehicle->vehicle_license_expire_date;
+
+        $this->brands = OptionsController::BRANDS;;
+        $this->years = OptionsController::YEARS;;
+        $this->colors = OptionsController::COLORS;;
+
     }
 
     public function save()

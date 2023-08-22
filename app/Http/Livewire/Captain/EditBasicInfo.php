@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Captain;
 
+use App\Http\Controllers\General\OptionsController;
 use App\Http\Traits\Toast;
 use App\Models\Captain;
 use App\Rules\Phone;
@@ -19,6 +20,7 @@ class EditBasicInfo extends Component
     public $birthday;
     public $national_expiry_date;
     public $license_expiry_date;
+    public $genders;
 
     function mount($captain)
     {
@@ -30,21 +32,12 @@ class EditBasicInfo extends Component
         $this->birthday = $captain->birthday;
         $this->national_expiry_date = $captain->national_expiry_date;
         $this->license_expiry_date = $captain->license_expiry_date;
+
+        $this->genders = OptionsController::GENDER;
     }
 
-    function save()
-    {
-        $data = $this->validate([
-            'full_name' => 'required|min:3|max:50',
-            'mobile' => ['required',new Phone(), 'unique:captains,mobile,'.$this->captain->id],
-            'email' => 'nullable',
-            'gender' => [Rule::in('male', 'female')],
-            'birthday' => 'required|date_format:Y-m-d|before:yesterday',
-            'national_expiry_date' => 'required|date_format:Y-m-d|after:yesterday',
-            'license_expiry_date' => 'required|date_format:Y-m-d|after:yesterday',
-        ]);
-
-        $this->captain->update([
+    protected function saveData($data){
+         $this->captain->update([
             'full_name' => $this->full_name,
             'mobile' => $this->mobile,
             'email' => $this->email,
@@ -57,9 +50,34 @@ class EditBasicInfo extends Component
         $this->alertSuccess(__('Created Successfully.'));
     }
 
+    function save()
+    {
+        $data = $this->validate([
+            'mobile' => ['required',new Phone(), 'unique:captains,mobile,'.$this->captain->id],
+            'full_name' => 'nullable|min:3|max:50',
+            'email' => 'nullable|email|min:5|max:50',
+            'gender' => 'nullable',
+            'birthday' => 'nullable|date_format:Y-m-d|before:yesterday',
+            'national_expiry_date' => 'nullable|date_format:Y-m-d|after:yesterday',
+            'license_expiry_date' => 'nullable|date_format:Y-m-d|after:yesterday',
+        ]);
+
+       $this->saveData($data);
+    }
+
     public function activate()
     {
-        $this->save();
+        $data = $this->validate([
+            'full_name' => 'required|min:3|max:50',
+            'mobile' => ['required',new Phone(), 'unique:captains,mobile,'.$this->captain->id],
+            'email' => 'nullable|email|min:5|max:50',
+            'gender' => [Rule::in(OptionsController::GENDER)],
+            'birthday' => 'required|date_format:Y-m-d|before:yesterday',
+            'national_expiry_date' => 'required|date_format:Y-m-d|after:yesterday',
+            'license_expiry_date' => 'required|date_format:Y-m-d|after:yesterday',
+        ]);
+
+        $this->saveData($data);
         $this->captain->update([
             'status' => $this->captain->vehicles->first()? 2 : 1,
         ]);

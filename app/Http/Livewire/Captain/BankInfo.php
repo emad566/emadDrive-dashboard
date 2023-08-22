@@ -31,10 +31,10 @@ class BankInfo extends Component
     public function save()
     {
         $data = $this->validate([
-            'bank_name' => 'required|min:4|max:191',
-            'iban_number' => 'required|min:20|max:191',
-            'account_name' => 'required|min:4|max:191',
-            'account_number' => 'required|min:20|max:191',
+            'account_name' => ['required', 'min:4', 'max:25'],
+            'iban_number' => ['required', 'regex:/[E]{1}[G]{1}[0-9]{22}/'],
+            'account_number' => ['required', 'min:4',],
+            'bank_name' => ['required_with:account_number', 'min:4'],
         ]);
 
         if($this->bank){

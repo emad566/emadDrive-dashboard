@@ -29,7 +29,6 @@ class AuthServiceProvider extends ServiceProvider
         Passport::tokensCan([
             'allow-captain' => 'Allow Access Captain App',
             'allow-passenger' => 'Allow Access Passenger App',
-
         ]);
 
         Passport::setDefaultScope([

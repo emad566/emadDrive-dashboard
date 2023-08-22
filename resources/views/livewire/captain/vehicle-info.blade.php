@@ -9,17 +9,17 @@
         <x-form.input required="*" wire:model.lazy="registration_plate" name="registration_plate" :label="__('Registration plate')" :placeholder="__('Registration plate')" wrapperClasses="w-1/3 pr-5"/>
 
         <x-form.select required="*" wire:model.lazy="brand" name="brand" :label="__('Brand')" wrapperClasses="w-1/3 pr-5">
-            <x-options.vehicle-brands />
+            <x-options.options :options="$brands" />
         </x-form.select>
 
         <x-form.input required="*" wire:model.lazy="model" name="model" :label="__('Model')" :placeholder="__('Model')" wrapperClasses="w-1/3 pr-5"/>
 
         <x-form.select required="*" wire:model.lazy="model_date" name="model_date" :label="__('Model date')" wrapperClasses="w-1/3 pr-5">
-            <x-options.years />
+            <x-options.options :options="$years" />
         </x-form.select>
 
         <x-form.select required="*" wire:model.lazy="color" name="color" :label="__('Color')" wrapperClasses="w-1/3 pr-5">
-            <x-options.colors />
+            <x-options.options :options="$colors" />
         </x-form.select>
 
         <x-form.input class="pikaday"  wire:model.lazy="vehicle_license_expire_date" name="vehicle_license_expire_date" :label="__('Vehicle license expire date')" :placeholder="__('Vehicle license expire date')" wrapperClasses="md:w-1/3 xs:w-1 pr-5"/>

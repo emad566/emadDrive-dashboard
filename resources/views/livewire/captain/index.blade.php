@@ -18,7 +18,7 @@
         <div class="d-flex flex-wrap">
             <x-form.input-icon wire.debounce.500ms="search" name="search" :label="__('Search')" placeholder="{{ __('Search') }} {{ __('Mobile') }} - {{ __('Full Name') }} ..." wrapperClasses="w-1/3 mr-0" icon="flaticon2-search-1 icon-md"/>
             <x-form.select wire:model.lazy="selectStatus" name="selectStatus" :label="__('Status')" wrapperClasses="w-1/3 pr-5">
-                <x-options.captain-status />
+                <x-options.options key="all" value="All" :options="$captain_options" />
             </x-form.select>
         </div>
 

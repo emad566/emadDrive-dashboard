@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Captain;
 
+use App\Http\Controllers\General\OptionsController;
 use App\Models\Captain;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -16,6 +17,7 @@ class Index extends Component
     public string $selectStatus = 'all';
 
     protected $queryString = ['sort_field', 'sort_direction'];
+    public $captain_options;
 
     public function sortBy($sort_field)
     {
@@ -25,6 +27,11 @@ class Index extends Component
             $this->sort_direction = 'asc';
         }
         $this->sort_field = $sort_field;
+    }
+
+    function mount()
+    {
+        $this->captain_options = OptionsController::CAPTAIN_STATUS;
     }
 
     function search()

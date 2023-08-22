@@ -17,7 +17,7 @@ class CreateCaptainsTable extends Migration
             $table->id();
             $table->string('captain_code')->unique();
             $table->string('full_name')->nullable();
-            $table->enum('gender',['male','female'])->nullable();
+            $table->enum('gender',['Male','Female'])->nullable();
             $table->date('birthday')->nullable();
             $table->string('mobile')->unique();
             $table->string('email')->unique()->nullable();
