@@ -5,9 +5,11 @@
     'values'=>[],
     'checkedValue'=> '',
     'hint' => '',
+    'wrapperClasses'=>'col-xs-12 col-md-4 pr-5',
+
 ])
 
-<div class="form-group w1/3 pr-5">
+<div class="form-group {{ $wrapperClasses }}">
     <label>{{ $label }}</label>
     <div class="radio-inline">
         @for($i=0; $i<count($options); $i++)

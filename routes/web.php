@@ -26,6 +26,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
 
     Route::resource('captains', CaptainController::class);
+    Route::resource('passengers', PassengerController::class);
 });
 
 

@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Captain;
-
+namespace App\Http\Livewire\Passenger;
 use App\Http\Controllers\General\OptionsController;
-use App\Models\Captain;
+use App\Models\Passenger;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,18 +11,14 @@ class Index extends Component
     use WithPagination;
 
     public string $search = '';
-    public string $sort_field = 'captain_code';
+    public string $sort_field = 'passenger_code';
     public string $sort_direction = 'desc';
-    public string $selectStatus = 'all';
-
     protected $queryString = ['sort_field', 'sort_direction'];
-    public $captain_options;
     public $paginate = 5;
     public $paginate_list = [];
 
     function mount()
     {
-        $this->captain_options = OptionsController::CAPTAIN_STATUS;
         $this->paginate_list = OptionsController::PAGINATE_LIST;
     }
 
@@ -41,31 +36,18 @@ class Index extends Component
 
     function search()
     {
-        $captains = Captain::search('full_name', $this->search)
+        $passengers = Passenger::search('full_name', $this->search)
             ->orSearch('mobile', $this->search)
             ->orderBy($this->sort_field, $this->sort_direction);
-
-        if($this->selectStatus == 'active'){
-            $captains = $captains->where('is_active', 1);
-        }
-
-        if($this->selectStatus == 'underReview'){
-            $captains = $captains->where('is_active', 0)->where('register_step', '>', 1);
-        }
-
-        if($this->selectStatus == 'registration'){
-            $captains = $captains->where('register_step', '<', 2);
-        }
-
-        return $this->paginate == 'all'? $captains->get() : $captains->paginate($this->paginate);
+        return $this->paginate == 'all'? $passengers->get() : $passengers->paginate($this->paginate);
     }
 
 
 
     public function render()
     {
-        return view('livewire.captain.index', [
-            'captains'=> $this->search()
+        return view('livewire.passenger.index', [
+            'passengers'=> $this->search()
         ]);
     }
 }

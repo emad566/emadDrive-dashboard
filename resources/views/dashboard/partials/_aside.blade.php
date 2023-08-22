@@ -127,7 +127,7 @@
                                     </li>
 
                                     <li class="menu-item {{ (request()->is('dashboard/passengers*')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
-                                        <a href="" class="menu-link">
+                                        <a href="{{ route('passengers.index') }}" class="menu-link">
                                             <span class="svg-icon menu-icon">
                                                 <i class="fa fas fa-user-alt text-primary icon-sm"></i>
                                             </span>

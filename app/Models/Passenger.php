@@ -14,31 +14,11 @@ class Passenger extends Authenticatable
     use HasFactory, HasApiTokens, Notifiable;
 
     protected $guard = 'passenger';
+    protected $table = 'passengers';
 
-    protected $fillable = [
-        'passenger_code',
-        'donation',
-        'donation_id',
-        'full_name',
-        'gender',
-        'mobile',
-        'country_code',
-        'email',
-        'password',
-        'verified_at',
-        'avatar',
-        'city_id',
-        'remember_token',
-        'device_token',
-        'shake_phone',
-        'health_condition_id',
-        'rate',
-        'vat',
-        'status',
-        'suspend',
-        'is_dark_mode',
-        'lang',
-    ];
+
+
+    protected $guarded = [];
 
    // public $with = ['favorites'];
 
@@ -53,6 +33,12 @@ class Passenger extends Authenticatable
      *
      * @return void
      */
+
+    public function getDeviceTypeIconAttribute()
+    {
+        return $this->device_type == 'android' ? 'fab fa-android' : (($this->device_type == 'ios') ? 'fab fa-apple' : 'fas fa-network-wired');
+    }
+
     public function scopeLogin($query)
     {
        // return $query->whereId(Auth::guard('passenger')->id()); ##Blind

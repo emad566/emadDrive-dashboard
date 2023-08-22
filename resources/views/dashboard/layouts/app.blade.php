@@ -16,7 +16,7 @@
               class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
         <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
             <a href="">
-                <img alt="Logo" height="50px" src="{{asset('assets/images/logo.png')}}" />
+                <img alt="Logo" class="h-50px" src="{{asset('assets/images/logo.png')}}" />
             </a>
 
             <div class="d-flex align-items-center">

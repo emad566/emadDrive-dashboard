@@ -50,6 +50,11 @@ class Captain extends Authenticatable
         return getFLName($this->full_name);
     }
 
+    public function getDeviceTypeIconAttribute()
+    {
+        return $this->device_type == 'android' ? 'fab fa-android' : (($this->device_type == 'ios') ? 'fab fa-apple' : 'fas fa-network-wired');
+    }
+
     public function getRegisterStepWordAttribute()
     {
         return getFLName($this->full_name);

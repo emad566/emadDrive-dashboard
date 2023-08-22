@@ -13,4 +13,5 @@ class OptionsController extends Controller
     const GENDER = ['Male', 'Female'];
     const CAPTAIN_STATUS = ['active','underReview','registration',];
     const DEVICE_TYPES = ['ios', 'android', 'web'];
+    const PAGINATE_LIST = [2,5,10,20,50,100,200,400,500,1000];
 }
