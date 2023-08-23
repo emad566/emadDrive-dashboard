@@ -44,7 +44,7 @@
                                     </li>
 
                                     <li class="menu-item {{ (request()->is('dashboard/users*')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
-                                        <a href="" class="menu-link">
+                                        <a href="{{ route('users.index') }}" class="menu-link">
                                             <span class="svg-icon menu-icon">
                                                 <i class="fa fas fa-users text-primary icon-sm"></i>
                                             </span>

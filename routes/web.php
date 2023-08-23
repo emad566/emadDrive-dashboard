@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +26,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
     Route::resource('captains', CaptainController::class);
     Route::resource('passengers', PassengerController::class);
+    Route::resource('users', UserController::class);
 });
 
 

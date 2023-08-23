@@ -63,6 +63,7 @@
     };
 </script>
 
+<script src="{{ asset('build/assets/app-4a08c204.js') }}"></script>
 
 <script src="{{ asset('dashboard-assets/plugins/global/plugins.bundle.js') }}"></script>
 <script src="{{ asset('dashboard-assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
