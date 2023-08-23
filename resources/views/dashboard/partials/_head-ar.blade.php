@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" /> --}}
     @vite('resources/css/app.css')
-    <link href="{{asset('build/assets/app-5a3ad029.css')}}" rel="stylesheet" type="text/css" />
+{{--    <link href="{{asset('build/assets/app-5a3ad029.css')}}" rel="stylesheet" type="text/css" />--}}
     <link href="{{asset('dashboard-assets/plugins/global/plugins.bundle.rtl.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('dashboard-assets/plugins/custom/prismjs/prismjs.bundle.rtl.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('dashboard-assets/css/style.bundle.rtl.css')}}" rel="stylesheet" type="text/css" />

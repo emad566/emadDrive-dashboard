@@ -123,5 +123,10 @@ return array(
         'model' => 'الموديل',
         'color' => 'اللون',
         'model_date' => 'سنة الموديل',
+        'name' => 'الاسم',
+        'email' => 'البريد الإلكتروني',
+        'mobile' => 'الجوال',
+        'password' => 'كلمة المرور',
+        'password_confirmation' => 'تأكيد كلمة المرور',
     ],
 );
