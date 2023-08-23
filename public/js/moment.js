@@ -1994,7 +1994,7 @@
         // Setting the hour should keep the time, because the user explicitly
         // specified which hour they want. So trying to maintain the same hour (in
         // a new timezone) makes sense. Adding/subtracting hours does not follow
-        // this rule.
+        // this role.
         getSetHour = makeGetSet('Hours', true);
 
     function localeMeridiem(hours, minutes, isLower) {

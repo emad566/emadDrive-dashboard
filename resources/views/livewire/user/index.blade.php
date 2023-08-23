@@ -27,25 +27,37 @@
 
         <x-table.table>
             <x-slot name="head">
+                <x-table.heading>{{ __('#') }}</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('mobile')" :direction="$sort_field === 'mobile'? $sort_direction : null">{{ __('Mobile') }}</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('name')" :direction="$sort_field === 'name'? $sort_direction : null">{{ __('Full Name') }}</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('email')" :direction="$sort_field === 'email'? $sort_direction : null">{{ __('Email') }}</x-table.heading>
-                <x-table.heading>{{ __('Since') }}</x-table.heading>
+{{--                <x-table.heading>{{ __('Since') }}</x-table.heading>--}}
                 <x-table.heading sortable wire:click="sortBy('created_at')" :direction="$sort_field === 'created_at'? $sort_direction : null">{{ __('Created') }}</x-table.heading>
+                <x-table.heading sortable wire:click="sortBy('status')" :direction="$sort_field === 'status'? $sort_direction : null">{{ __('Status') }}</x-table.heading>
+                <x-table.heading sortable wire:click="sortBy('login')" :direction="$sort_field === 'login'? $sort_direction : null">{{ __('Online') }}</x-table.heading>
                 <x-table.heading>{{ __('Actions') }}</x-table.heading>
             </x-slot>
             <x-slot name="body">
                 @php $i=1 @endphp
                 @foreach($users as $user)
                     <x-table.row wire:loading.class="opacity-50">
+                        <x-table.cell>
+                            <x-snippets.avatar>{{ $i++ }}</x-snippets.avatar>
+                        </x-table.cell>
                         <x-table.cell>{{ $user->mobile }}</x-table.cell>
                         <x-table.cell>{{ $user->name }}</x-table.cell>
-                        <x-table.cell>{{ $user->email }}</x-table.cell>
-                        <x-table.cell>{{ \Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</x-table.cell>
+                        <x-table.cell><p class="overflow-ellipsis max-w-100px truncate ">{{ $user->email }}</p></x-table.cell>
+{{--                        <x-table.cell>{{ \Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</x-table.cell>--}}
                         <x-table.cell>{{ $user->created_at }}</x-table.cell>
                         <x-table.cell>
-                           <x-buttons.button wire:click="edit({{ $user->id }})">{{ __('Edit') }}</x-buttons.button>
-                           <x-buttons.button wire:click="destroy({{ $user->id }})">{{ __('Delete') }}</x-buttons.button>
+                            <x-form.switch  wire:click="status_switch({{ __($user->id) }})" >{{ $user->status_switch }}</x-form.switch>
+                        </x-table.cell>
+                        <x-table.cell>
+                            <x-snippets.online icon="warning">{{ \Carbon\Carbon::parse($user->login)->diffForHumans() }}</x-snippets.online>
+                        </x-table.cell>
+                        <x-table.cell>
+                           <x-buttons.edit wire:click="edit({{ $user->id }})" />
+                           <x-buttons.delete actionId="{{ $user->id }}" />
                         </x-table.cell>
                     </x-table.row>
                 @endforeach
@@ -62,31 +74,8 @@
 
         </div>
     </div>
-    <!--end::Body-->
 
+    <x-sweet.delete />
 
-            <form wire:submit.prevent="save">
-    <x-modal.dialog wire:model="show_modal">
-        <x-slot name="title">{{__($is_edit? 'Edit' : 'Add')}}: {{ $userEdit?->name }}</x-slot>
-        <x-slot name="content">
-
-                <div class="row">
-                    <x-form.input wire:model.lazy="userEdit.name" name="userEdit.name" :label="__('Full Name')" :placeholder="__('Full Name')" wrapperClasses="col-12"/>
-                    <x-form.input wire:model.lazy="userEdit.mobile" name="userEdit.mobile" :label="__('Mobile')" :placeholder="__('Mobile')" maxlength='11' minlength='11' wrapperClasses="col-12"/>
-                    <x-form.input wire:model.lazy="userEdit.email" name="userEdit.email" type="email" :label="__('Email')" :placeholder="__('Email')" wrapperClasses="col-12"/>
-                    @if(!$is_edit)
-                    <x-form.input wire:model="password" name="password" type="password" :label="__('Password')" :placeholder="__('Password')" wrapperClasses="col-12"/>
-                   <p>{{$userEdit?->password}}</p>
-                    <x-form.input wire:model.lazy="password_confirmation" name="password_confirmation" type="password" :label="__('Password Confirmation')" :placeholder="__('Password Confirmation')" wrapperClasses="col-12"/>
-                    @endif
-                </div>
-        </x-slot>
-        <x-slot name="footer">
-            <div class="d-flex flex-wrap justify-content-end">
-                <x-buttons.save wire:click="cancel" target="cancel" >{{ __('Cancel') }}</x-buttons.save>
-                <x-buttons.submit target="save" >{{ __('Save') }}</x-buttons.submit>
-            </div>
-        </x-slot>
-    </x-modal.dialog>
-            </form>
+    @include('livewire.user.partials.create')
 </div>

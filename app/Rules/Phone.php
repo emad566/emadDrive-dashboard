@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Rule;
 class Phone implements Rule
 {
     /**
-     * Create a new rule instance.
+     * Create a new role instance.
      *
      * @return void
      */
@@ -17,7 +17,7 @@ class Phone implements Rule
     }
 
    /**
-     * Determine if the validation rule passes.
+     * Determine if the validation role passes.
      *
      * @param  string  $attribute
      * @param  mixed  $value

@@ -23,7 +23,7 @@ return array(
   array(
     'attribute-name' =>
     array(
-      'rule-name' => 'custom-message',
+      'role-name' => 'custom-message',
     ),
   ),
   'date'                 => 'الحقل :attribute ليس تاريخًا صحيحًا',
