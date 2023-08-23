@@ -8,7 +8,7 @@ use Livewire\WithPagination;
 
 class UserController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
         return view('dashboard.user.index');
     }

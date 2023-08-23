@@ -28,6 +28,10 @@ class Index extends Component
     public $password;
     public $password_confirmation;
 
+    public function status_switch(User $user){
+        $user->update(['status'=>$user->status? 0 : 1]);
+        $this->alertSuccess(__('Saved'));
+    }
     public function rules(){
 
         $editVaidate = [
@@ -62,7 +66,9 @@ class Index extends Component
     public function destroy(user $user)
     {
         $user->delete();
-        $this->alertSuccess(__('Has been deleted.'));
+//        $this->alertSuccess(__('Has been deleted.'));
+        $this->dispatchBrowserEvent('alert-delete');
+
     }
 
     public function create()

@@ -24,7 +24,7 @@ return array (
   array (
     'attribute-name' =>
     array (
-      'rule-name' => 'custom-message',
+      'role-name' => 'custom-message',
     ),
   ),
   'date' => 'The :attribute is not a valid date.',

@@ -68,7 +68,7 @@
 <!-- /alpinejs -->
 
 <!-- app.js -->
-{{--<script defer src="{{ asset('build/assets/app-4a08c204.js') }}"></script>--}}
+<script defer src="{{ asset('build/assets/app-4a08c204.js') }}"></script>
 <!-- /app.js -->
 
 
