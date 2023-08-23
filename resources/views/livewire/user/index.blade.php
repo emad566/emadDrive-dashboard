@@ -45,6 +45,7 @@
                         <x-table.cell>{{ $user->created_at }}</x-table.cell>
                         <x-table.cell>
                            <x-buttons.button wire:click="edit({{ $user->id }})">{{ __('Edit') }}</x-buttons.button>
+                           <x-buttons.button wire:click="destroy({{ $user->id }})">{{ __('Delete') }}</x-buttons.button>
                         </x-table.cell>
                     </x-table.row>
                 @endforeach

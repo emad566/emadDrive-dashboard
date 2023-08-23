@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\user;
 use App\Http\Controllers\General\OptionsController;
+use App\Http\Traits\Toast;
 use App\Models\user;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -10,6 +11,7 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
+    use Toast;
 
     public string $search = '';
     public string $sort_field = 'name';
@@ -54,7 +56,15 @@ class Index extends Component
         $this->is_edit = true;
         $this->userEdit = $user;
         $this->show_modal = true;
+
     }
+
+    public function destroy(user $user)
+    {
+        $user->delete();
+        $this->alertSuccess(__('Has been deleted.'));
+    }
+
     public function create()
     {
         $this->resetInputFields();
@@ -66,7 +76,7 @@ class Index extends Component
     private function resetInputFields(){
         $this->resetErrorBag();
     }
-     public function save()
+    public function save()
     {
 
         $this->validate();
@@ -77,6 +87,7 @@ class Index extends Component
         $this->password_confirmation = '';
         $this->userEdit->save();
         $this->cancel();
+        $this->alertSuccess(__('Saved'));
     }
 
     public function cancel()
