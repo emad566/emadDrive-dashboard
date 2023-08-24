@@ -62,7 +62,7 @@
                                     </li>
 
                                     <li class="menu-item {{ (request()->is('dashboard/permissions*')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
-                                        <a href="" class="menu-link">
+                                        <a href="{{ route('permissions.index') }}" class="menu-link">
                                             <span class="svg-icon menu-icon">
                                                 <i class="fa fas fa-universal-access text-primary icon-sm"></i>
                                             </span>

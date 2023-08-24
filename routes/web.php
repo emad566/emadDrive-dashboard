@@ -28,6 +28,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('passengers', PassengerController::class)->name('passengers.index');
     Route::get('users', UserController::class)->name('users.index');
     Route::get('roles', RoleController::class)->name('roles.index');
+    Route::get('permissions', PermissionController::class)->name('permissions.index');
 });
 
 
