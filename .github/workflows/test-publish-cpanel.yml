@@ -1,0 +1,25 @@
+name: publish to cpnale test
+
+on:
+  push: #event
+    branches: ["emad"]
+  workflow_dispatch: #event
+
+  jobs:
+    publish_to_cpanel:
+      runs-on: ubuntu_latest
+
+      steps:
+      - name: checkout branch
+        uses: actions/checkout@v3
+
+      - name: copy files to destination
+        uses: Burnett01/rsync-deployments@6.0.0
+        with:
+          switch: -auvzrP
+          path: /
+          remote_path: /home/emadw3/atmo-dash.emadw3.com/github-test/
+          remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_port: 21098
+          remote_user: ${{ secrets.REMOTE_USER }}
+          remote_password: ${{ secrets.REMOTE_PASSWORD }}
