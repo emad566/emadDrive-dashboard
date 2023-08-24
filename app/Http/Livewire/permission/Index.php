@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\role;
+namespace App\Http\Livewire\permission;
 use App\Http\Controllers\General\ConstantController;
 use App\Http\Controllers\General\OptionsController;
 use App\Http\Traits\Toast;
@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 class Index extends Component
 {
@@ -24,32 +23,31 @@ class Index extends Component
     public $paginate_list = [];
     public $show_modal = false;
 
-    public Role $roleEdit;
+    public Permission $permissionEdit;
     public function rules(){
 
         return [
-            'roleEdit.name'=>'required|min:3|max:20|unique:roles,name,'.$this->roleEdit?->id,
+            'permissionEdit.name'=>'required|min:1|max:20',
         ];
     }
 
-    public function edit(Role $role)
+    public function edit(Permission $permission)
     {
         $this->resetInputFields();
-        $this->roleEdit = $role;
+        $this->permissionEdit = $permission;
         $this->show_modal = true;
     }
 
-    public function destroy(role $role)
+    public function destroy(permission $permission)
     {
-        $role->delete();
-//        $this->alertSuccess(__('Has been deleted.'));
+        $permission->delete();
         $this->dispatchBrowserEvent('alert-delete');
     }
 
     public function create()
     {
         $this->resetInputFields();
-        $this->roleEdit = Role::make();
+        $this->permissionEdit = Permission::make();
         $this->show_modal = true;
     }
 
@@ -59,7 +57,7 @@ class Index extends Component
     public function save()
     {
         $this->validate();
-        $this->roleEdit->save();
+        $this->permissionEdit->save();
         $this->cancel();
         $this->alertSuccess(__('Saved'));
     }
@@ -72,7 +70,7 @@ class Index extends Component
 
     function mount()
     {
-        $this->roleEdit = Role::make();
+        $this->permissionEdit = Permission::make();
         $this->paginate_list = OptionsController::PAGINATE_LIST;
         $this->paginate = ConstantController::LARGE_NUMBER_OF_PAGINATE;
     }
@@ -91,17 +89,17 @@ class Index extends Component
 
     function search()
     {
-        $roles = Role::search('name', $this->search)
+        $permissions = Permission::search('name', $this->search)
             ->orderBy($this->sort_field, $this->sort_direction);
-        return $this->paginate == 'all'? $roles->get() : $roles->paginate($this->paginate);
+        return $this->paginate == 'all'? $permissions->get() : $permissions->paginate($this->paginate);
     }
 
 
 
     public function render()
     {
-        return view('livewire.role.index', [
-            'roles'=> $this->search()
+        return view('livewire.permission.index', [
+            'permissions'=> $this->search()
         ]);
     }
 }
