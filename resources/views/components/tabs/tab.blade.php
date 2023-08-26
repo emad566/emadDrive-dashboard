@@ -1,9 +1,13 @@
 <div class="card card-custom">
     <div class="card-header card-header-tabs-line">
+
         <div class="card-toolbar">
             <ul class="nav nav-tabs nav-bold nav-tabs-line">
                 {{ $title }}
             </ul>
+        </div>
+        <div class="card-title">
+            {{ $cardTitle }}
         </div>
     </div>
     <div class="card-body">

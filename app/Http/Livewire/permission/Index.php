@@ -61,7 +61,7 @@ class Index extends Component
     public function save()
     {
         $this->validate();
-        if($this->permissionEdit?->id == $this->permissionEdit->parent_id){
+        if($this->permissionEdit?->id == $this->permissionEdit->parent_id && $this->permissionEdit?->id ){
             $this->addError('permissionEdit.parent_id', 'Item can not be parent for it self!!');
             return;
         }
