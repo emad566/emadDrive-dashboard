@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <link rel="stylesheet" href="{{ asset('assets/lightbox/css/lightbox.min.css')}}">
         @vite('resources/css/app.css')
+<<<<<<< HEAD
 {{--    <link href="{{asset('build/assets/app-8252cc18.css')}}" rel="stylesheet" type="text/css" />--}}
+=======
+>>>>>>> s1
     <link href="{{ asset('dashboard-assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard-assets/plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard-assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />

@@ -68,9 +68,13 @@
 <script defer src="{{ asset('js/alpine.min.js') }}"></script>
 <!-- /alpinejs -->
 
+<<<<<<< HEAD
 <!-- app.js -->
 {{--<script defer src="{{ asset('build/assets/app-4a08c204.js') }}"></script>--}}
 <!-- /app.js -->
+=======
+
+>>>>>>> s1
 
 
 <script src="{{ asset('dashboard-assets/plugins/global/plugins.bundle.js') }}"></script>

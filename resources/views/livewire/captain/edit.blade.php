@@ -1,5 +1,6 @@
 <x-tabs.tab>
     <x-slot name="title">
+
         @php $icon = $captain->status > 0? 'fas fa-check' : 'fas fa-info' @endphp
         <x-tabs.title wire:click="tab('t1')" id="t1" :title="__('Basic Information')" :iconclass="$icon" :active="$tab" />
         @php $icon = $captain->vehicles->first()->status? 'fas fa-check' : 'fas fa-car' @endphp
@@ -12,7 +13,11 @@
         <x-tabs.title wire:click="tab('t5')" id="t5" :title="__('Extra Files')" :iconclass="$icon" :active="$tab" />
     </x-slot>
 
-    <i class="fa-file"></i>
+    <x-slot name="cardTitle" >
+        <span>
+            <x-form.switch-label  wrapperClasses="row" label="{{__('active')}}">1</x-form.switch-label>
+        </span>
+    </x-slot>
 
     <x-slot name="body">
         <x-tabs.body id="t1" :active="$tab">
