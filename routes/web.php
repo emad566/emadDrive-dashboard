@@ -24,11 +24,16 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     // Localization En Ar from file ar.json
     Route::get('lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
 
-    Route::resource('captains', CaptainController::class);
-    Route::get('passengers', PassengerController::class)->name('passengers.index');
-    Route::get('users', UserController::class)->name('users.index');
-    Route::get('roles', RoleController::class)->name('roles.index');
-    Route::get('permissions', PermissionController::class)->name('permissions.index');
+    Route::group(['prefix' => 'accounts'], function () {
+        Route::resource('captains', CaptainController::class);
+        Route::get('passengers', PassengerController::class)->name('passengers.index');
+        Route::get('users', UserController::class)->name('users.index');
+
+        Route::group(['prefix' => 'users'], function () {
+            Route::get('roles', RoleController::class)->name('roles.index');
+            Route::get('permissions', PermissionController::class)->name('permissions.index');
+        });
+    });
 });
 
 

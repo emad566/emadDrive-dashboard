@@ -19,7 +19,7 @@
             <x-form.select wire:model.lazy="paginate" name="paginate" :label="__('Show')">
                 <x-options.options key="all" value="All" :options="$paginate_list" selected="5"/>
             </x-form.select>
-            <x-form.input-icon wire.debounce.500ms="search" name="search" :label="__('Search')" placeholder="{{ __('Search') }} {{ __('Mobile') }} - {{ __('Full Name') }} ..." icon="flaticon2-search-1 icon-md"/>
+            <x-form.input-icon wire:model.debounce.500ms="search" name="search" :label="__('Search')" placeholder="{{ __('Search') }} {{ __('Mobile') }} - {{ __('Full Name') }} ..." icon="flaticon2-search-1 icon-md"/>
             <x-form.select wire:model.lazy="selectStatus" name="selectStatus" :label="__('Status')">
                 <x-options.options key="all" value="All" :options="$captain_options" />
             </x-form.select>

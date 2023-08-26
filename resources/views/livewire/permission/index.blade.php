@@ -19,7 +19,7 @@
             <x-form.select wire:model.lazy="paginate" name="paginate" :label="__('Show')">
                 <x-options.options key="all" value="All" :options="$paginate_list" selected="5"/>
             </x-form.select>
-            <x-form.input-icon wire.debounce.500ms="search" name="search" :label="__('Search')" placeholder="{{ __('Search') }}  - {{ __('Name') }} ..." icon="flaticon2-search-1 icon-md"/>
+            <x-form.input-icon wire:model.debounce.500ms="search" name="search" :label="__('Search')" placeholder="{{ __('Search') }}  - {{ __('Name') }} ..." icon="flaticon2-search-1 icon-md"/>
         </div>
 
 
@@ -27,7 +27,9 @@
 
         <x-table.table>
             <x-slot name="head">
+                <x-table.heading>{{ __('#') }}</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('name')" :direction="$sort_field === 'name'? $sort_direction : null">{{ __('Name') }}</x-table.heading>
+                <x-table.heading>{{ __('Parent') }}</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('created_at')" :direction="$sort_field === 'created_at'? $sort_direction : null">{{ __('Created') }}</x-table.heading>
                 <x-table.heading>{{ __('Actions') }}</x-table.heading>
             </x-slot>
@@ -35,7 +37,15 @@
                 @php $i=1 @endphp
                 @foreach($permissions as $permission)
                     <x-table.row wire:loading.class="opacity-50">
+                        <x-table.cell>
+                            <x-snippets.avatar>{{ $permission->id }}</x-snippets.avatar>
+                        </x-table.cell>
                         <x-table.cell>{{ $permission->name }}</x-table.cell>
+                        <x-table.cell>
+                            @if($permission->parent)
+                                <x-snippets.label-light>{{ $permission->parent->name }}</x-snippets.label-light>
+                            @endif
+                        </x-table.cell>
                         <x-table.cell>{{ $permission->created_at }}</x-table.cell>
                         <x-table.cell>
                             <x-buttons.edit wire:click="edit({{ $permission->id }})" />
@@ -57,23 +67,7 @@
     <!--end::Body-->
 
 
-    <form wire:submit.prevent="save">
-        <x-modal.dialog wire:model="show_modal">
-            <x-slot name="title"> {{__(!($permissionEdit?->id)? 'Edit' : 'Add')}}: {{ $permissionEdit?->name }}</x-slot>
-            <x-slot name="content">
-
-                    <div class="row">
-                        <x-form.input wire:model.lazy="permissionEdit.name" name="permissionEdit.name" :label="__('Name')" :placeholder="__('Name')" wrapperClasses="col-12"/>
-                    </div>
-            </x-slot>
-            <x-slot name="footer">
-                <div class="d-flex flex-wrap justify-content-end">
-                    <x-buttons.save wire:click="cancel" target="cancel" >{{ __('Cancel') }}</x-buttons.save>
-                    <x-buttons.submit target="save" >{{ __('Save') }}</x-buttons.submit>
-                </div>
-            </x-slot>
-        </x-modal.dialog>
-    </form>
+    @include('livewire.permission.partials.create')
 
     <x-sweet.delete />
 </div>

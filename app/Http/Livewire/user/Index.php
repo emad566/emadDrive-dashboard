@@ -52,6 +52,8 @@ class Index extends Component
     function mount()
     {
         $this->paginate_list = OptionsController::PAGINATE_LIST;
+        $this->userEdit = User::make();
+
     }
 
     public function edit(user $user)
@@ -66,7 +68,6 @@ class Index extends Component
     public function destroy(user $user)
     {
         $user->delete();
-//        $this->alertSuccess(__('Has been deleted.'));
         $this->dispatchBrowserEvent('alert-delete');
 
     }
@@ -75,7 +76,6 @@ class Index extends Component
     {
         $this->resetInputFields();
         $this->is_edit = false;
-        $this->userEdit = User::make();
         $this->show_modal = true;
     }
 
@@ -99,7 +99,6 @@ class Index extends Component
     public function cancel()
     {
         $this->show_modal = false;
-
     }
 
     public function sortBy($sort_field)
