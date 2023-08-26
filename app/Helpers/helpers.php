@@ -4,7 +4,6 @@ use App\Models\Language;
 use Carbon\Carbon;
 
 
-
 if (!function_exists('CalcMinutesOfTrip')) {
 	function CalcMinutesOfTrip($start_date)
 	{

@@ -64,6 +64,7 @@
 </script>
 
 <!-- alpinejs -->
+<script defer src="{{ asset('js/focus.min.js') }}"></script>
 <script defer src="{{ asset('js/alpine.min.js') }}"></script>
 <!-- /alpinejs -->
 
@@ -123,12 +124,14 @@
             "closeButton": true,
             "progressBar": true,
             @if($local == 'en')
-                "positionClass" : "toast-top-right",
+            "positionClass" : "toast-top-right",
             @else
-                "positionClass" : "toast-top-left",
+            "positionClass" : "toast-top-left",
             @endif
         }
     });
+
+
 </script>
 <style>
     .toast-success{
@@ -159,4 +162,3 @@
 
 @livewireScripts
 @yield('scripts')
-
