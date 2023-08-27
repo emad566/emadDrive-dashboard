@@ -1,4 +1,7 @@
-<div class="card card-custom">
+<div class="card card-custom" x-data="{
+    show: false,
+    isCreate: false,
+}">
     <div class="card-header flex-wrap border-0 pt-6 pb-0">
         <div class="card-title">
             <h3 class="card-label"><?php echo e(__("Roles")); ?>
@@ -7,7 +10,7 @@
             </h3>
         </div>
         <div class="card-toolbar">
-            <a wire:click.prevent="create" class="btn btn-primary font-weight-bolder"  >
+            <a wire:click.prevent="create" class="btn btn-primary font-weight-bolder"  x-on:click="show=true; isCreate=true">
                 <i class="la la-plus"></i><?php echo e(__("New Role")); ?></a>
             <!--end::Button-->
         </div>
@@ -210,14 +213,14 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
                             <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.buttons.edit','data' => ['wire:click' => 'edit('.e($role->id).')']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.buttons.edit','data' => ['wire:click' => 'edit('.e($role->id).')','xOn:click' => 'show=true; isCreate=false']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('buttons.edit'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['wire:click' => 'edit('.e($role->id).')']); ?>
+<?php $component->withAttributes(['wire:click' => 'edit('.e($role->id).')','x-on:click' => 'show=true; isCreate=false']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>

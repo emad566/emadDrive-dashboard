@@ -1,4 +1,7 @@
-<div class="card card-custom">
+<div class="card card-custom" x-data="{
+    show: false,
+    isCreate: false,
+}">
     <div class="card-header flex-wrap border-0 pt-6 pb-0">
         <div class="card-title">
             <h3 class="card-label">{{__("Permissions")}}
@@ -6,7 +9,7 @@
             </h3>
         </div>
         <div class="card-toolbar">
-            <a wire:click.prevent="create" class="btn btn-primary font-weight-bolder"  >
+            <a wire:click.prevent="create" class="btn btn-primary font-weight-bolder"  x-on:click="show=true; isCreate=true">
                 <i class="la la-plus"></i>{{__("New Permission")}}</a>
             <!--end::Button-->
         </div>
@@ -36,7 +39,7 @@
             <x-slot name="body">
                 @php $i=1 @endphp
                 @foreach($permissions as $permission)
-                    <x-table.row wire:loading.class="opacity-50">
+                    <x-table.row wire:loading.class="opacity-50" wire:target="search">
                         <x-table.cell>
                             <x-snippets.avatar>{{ $permission->id }}</x-snippets.avatar>
                         </x-table.cell>
@@ -48,8 +51,8 @@
                         </x-table.cell>
                         <x-table.cell>{{ $permission->created_at }}</x-table.cell>
                         <x-table.cell>
-                            <x-buttons.edit wire:click="edit({{ $permission->id }})" />
-                            <x-buttons.delete actionId="{{ $permission->id }}" />
+                            <x-buttons.edit wire:click="edit({{ $permission->id }})" x-on:click="show=true; isCreate=false"/>
+                            <x-buttons.delete actionId="{{ $permission->id }}"/>
                         </x-table.cell>
                     </x-table.row>
                 @endforeach

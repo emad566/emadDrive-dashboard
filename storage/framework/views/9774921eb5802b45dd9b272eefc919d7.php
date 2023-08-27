@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
         <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> s1
     <link href="<?php echo e(asset('dashboard-assets/plugins/global/plugins.bundle.rtl.css')); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo e(asset('dashboard-assets/plugins/custom/prismjs/prismjs.bundle.rtl.css')); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo e(asset('dashboard-assets/css/style.bundle.rtl.css')); ?>" rel="stylesheet" type="text/css" />

@@ -7,6 +7,7 @@ use App\Models\user;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Spatie\Permission\Models\Role;
 
 class Index extends Component
 {
@@ -27,6 +28,8 @@ class Index extends Component
     public User $userEdit;
     public $password;
     public $password_confirmation;
+    public $roles;
+    public $selectetRoleId;
 
     public function status_switch(User $user){
         $user->update(['status'=>$user->status? 0 : 1]);
@@ -53,16 +56,24 @@ class Index extends Component
     {
         $this->paginate_list = OptionsController::PAGINATE_LIST;
         $this->userEdit = User::make();
-
+        $this->roles = Role::all();
+        $this->selectetRoleId = $this->userEdit?->roles?->first()?->id;
     }
 
     public function edit(user $user)
     {
+        $this->dispatchBrowserEvent('alert-show-model');
         $this->resetInputFields();
         $this->is_edit = true;
         $this->userEdit = $user;
         $this->show_modal = true;
+        $this->selectetRoleId = $this->userEdit?->roles?->first()?->id;
 
+    }
+
+    function updated()
+    {
+        $this->dispatchBrowserEvent('alert-show-model');
     }
 
     public function destroy(user $user)
@@ -74,9 +85,11 @@ class Index extends Component
 
     public function create()
     {
+        $this->dispatchBrowserEvent('alert-show-model');
         $this->resetInputFields();
         $this->is_edit = false;
         $this->show_modal = true;
+        $this->selectetRoleId = '';
     }
 
     private function resetInputFields(){
@@ -92,6 +105,7 @@ class Index extends Component
         $this->password = '';
         $this->password_confirmation = '';
         $this->userEdit->save();
+        $this->userEdit->assignRole($this->selectetRoleId);
         $this->cancel();
         $this->alertSuccess(__('Saved'));
     }
@@ -99,6 +113,7 @@ class Index extends Component
     public function cancel()
     {
         $this->show_modal = false;
+
     }
 
     public function sortBy($sort_field)

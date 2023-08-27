@@ -1,4 +1,7 @@
-<div class="card card-custom">
+<div class="card card-custom" x-data="{
+    show: false,
+    isCreate: false,
+}">
     <div class="card-header flex-wrap border-0 pt-6 pb-0">
         <div class="card-title">
             <h3 class="card-label">{{__("Roles")}}
@@ -6,7 +9,7 @@
             </h3>
         </div>
         <div class="card-toolbar">
-            <a wire:click.prevent="create" class="btn btn-primary font-weight-bolder"  >
+            <a wire:click.prevent="create" class="btn btn-primary font-weight-bolder"  x-on:click="show=true; isCreate=true">
                 <i class="la la-plus"></i>{{__("New Role")}}</a>
             <!--end::Button-->
         </div>
@@ -30,7 +33,7 @@
             <x-slot name="body">
                 @php $i=1 @endphp
                 @foreach($roles as $role)
-                    <x-table.row wire:loading.class="opacity-50">
+                    <x-table.row wire:loading.class="opacity-50" wire:target="search">
                         <x-table.cell>{{ $role->name }}</x-table.cell>
                         <x-table.cell>{{ $role->created_at }}</x-table.cell>
                         <x-table.cell>
@@ -39,7 +42,7 @@
                             @endforeach
                         </x-table.cell>
                         <x-table.cell>
-                            <x-buttons.edit wire:click="edit({{ $role->id }})" />
+                            <x-buttons.edit wire:click="edit({{ $role->id }})" x-on:click="show=true; isCreate=false"/>
                             <x-buttons.delete actionId="{{ $role->id }}" />
                         </x-table.cell>
                     </x-table.row>

@@ -55,7 +55,7 @@ class EditBasicInfo extends Component
         $data = $this->validate([
             'mobile' => ['required',new Phone(), 'unique:captains,mobile,'.$this->captain->id],
             'full_name' => 'nullable|min:3|max:50',
-            'email' => 'nullable|email|min:5|max:50',
+            'email' => 'nullable|email|min:5|max:50|unique:captains,email,'.$this->captain->id,
             'gender' => 'nullable',
             'birthday' => 'nullable|date_format:Y-m-d|before:yesterday',
             'national_expiry_date' => 'nullable|date_format:Y-m-d|after:yesterday',
@@ -70,7 +70,7 @@ class EditBasicInfo extends Component
         $data = $this->validate([
             'full_name' => 'required|min:3|max:50',
             'mobile' => ['required',new Phone(), 'unique:captains,mobile,'.$this->captain->id],
-            'email' => 'nullable|email|min:5|max:50',
+            'email' => 'nullable|email|min:5|max:50|unique:captains,email,'.$this->captain->id,
             'gender' => [Rule::in(OptionsController::GENDER)],
             'birthday' => 'required|date_format:Y-m-d|before:yesterday',
             'national_expiry_date' => 'required|date_format:Y-m-d|after:yesterday',

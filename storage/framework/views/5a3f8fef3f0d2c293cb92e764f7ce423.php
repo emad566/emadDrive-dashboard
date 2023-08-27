@@ -1,17 +1,17 @@
 <?php $attributes ??= new \Illuminate\View\ComponentAttributeBag; ?>
 <?php foreach($attributes->onlyProps([
-    'target'=>'',
-    'class'=>'btn btn-bg-warning btn-md w-100px',
+    'label'=>'',
+    'value'=>'',
 ]) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
 <?php $attributes = $attributes->exceptProps([
-    'target'=>'',
-    'class'=>'btn btn-bg-warning btn-md w-100px',
+    'label'=>'',
+    'value'=>'',
 ]); ?>
 <?php foreach (array_filter(([
-    'target'=>'',
-    'class'=>'btn btn-bg-warning btn-md w-100px',
+    'label'=>'',
+    'value'=>'',
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -20,8 +20,9 @@
     if (array_key_exists($__key, $__defined_vars)) unset($$__key);
 } ?>
 <?php unset($__defined_vars); ?>
-<div class="d-flex justify-content-end mx-5">
-    <button <?php echo e($attributes); ?> type="button" class="<?php echo e($class); ?>"><?php echo e($slot); ?> </button>
-    <i class="fas fa-spinner rotate" wire:loading wire:target="<?php echo e($target); ?>"></i>
+
+
+<div class="w-1/3 pr-5">
+    <p><?php echo e($label); ?> <span class="form-text text-muted"><?php echo e($value); ?></span> </p>
 </div>
-<?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/components/buttons/save.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/components/infos/info.blade.php ENDPATH**/ ?>

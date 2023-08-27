@@ -1,7 +1,8 @@
-<form wire:submit.prevent="save">
-    <x-modal.dialog wire:model="show_modal">
+<form wire:submit.prevent="save" x-show="show">
+    <x-modal.dialog>
         <x-slot name="title"> {{__(($permissionEdit?->id)? 'Edit' : 'Add')}}: {{ $permissionEdit?->name }}</x-slot>
         <x-slot name="content">
+            <i class="fas fa-spinner rotate" wire:loading ></i>
 
             <div class="row">
                 <x-form.input wire:model.lazy="permissionEdit.name" name="permissionEdit.name" :label="__('Name')" :placeholder="__('Name')" wrapperClasses="col-12"/>
@@ -14,7 +15,7 @@
         </x-slot>
         <x-slot name="footer">
             <div class="d-flex flex-wrap justify-content-end">
-                <x-buttons.save wire:click="cancel" target="cancel" >{{ __('Cancel') }}</x-buttons.save>
+                <x-buttons.save wire:click="cancel" target="cancel" x-on:click="show=false">{{ __('Cancel') }}</x-buttons.save>
                 <x-buttons.submit target="save" >{{ __('Save') }}</x-buttons.submit>
             </div>
         </x-slot>

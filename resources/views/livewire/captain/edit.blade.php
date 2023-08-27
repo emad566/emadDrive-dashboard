@@ -14,9 +14,9 @@
     </x-slot>
 
     <x-slot name="cardTitle" >
-        <span>
-            <x-form.switch-label  wrapperClasses="row" label="{{__('active')}}">1</x-form.switch-label>
-        </span>
+            @if($captain->status  >= 1 && $captain->vehicles->first()->status >=1 && $captain->vehicles->first()->status_image >= 1)
+                <x-form.switch-label wire:model="isActive"  wrapperClasses="row" label="{{__('active')}}">1</x-form.switch-label>
+           @endif
     </x-slot>
 
     <x-slot name="body">
