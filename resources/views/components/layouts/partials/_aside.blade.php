@@ -93,7 +93,7 @@
                                         </span>
                                     </li>
 
-                                    <li class="menu-item {{ (request()->is('dashboard/accounts/captains*')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                                    <li class="menu-item {{ (request()->is('dashboard/accounts/captains')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
                                         <a wire:navigate href="{{ route('captains.index') }}" class="menu-link">
                                             <span class="svg-icon menu-icon">
                                                 <i class="fa fas fa-car-alt text-primary icon-sm"></i>
@@ -101,7 +101,14 @@
                                             <span class="menu-text">{{ __('Captains') }}</span>
                                         </a>
                                     </li>
-
+                                    <li class="menu-item {{ (request()->is('dashboard/accounts/captains/properties*')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                                        <a wire:navigate href="{{ route('properties.index') }}" class="menu-link">
+                                            <span class="svg-icon menu-icon">
+                                                <i class="fa fas fa-universal-access text-primary icon-sm"></i>
+                                            </span>
+                                            <span class="menu-text">{{ __('Properties') }}</span>
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </div>
