@@ -45,7 +45,7 @@
                         <x-table.cell>{!! $item->icon !!}</x-table.cell>
                         <x-table.cell>{{ $item->title }}</x-table.cell>
                         <x-table.cell>
-                            <x-form.switch  wire:click="status_switch({{ __($item->id) }})" >{{ $item->status_switch }}</x-form.switch>
+                            <x-form.switch :checked="$item->status_switch"  wire:click="status_switch({{ $item->id }})" >1</x-form.switch>
                         </x-table.cell>
 
                         <x-table.cell>
