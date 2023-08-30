@@ -19,19 +19,20 @@
 <?php endif; ?>
 
             <?php
-if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('passenger.index')->html();
-} elseif ($_instance->childHasBeenRendered('N1T4LOm')) {
-    $componentId = $_instance->getRenderedChildComponentId('N1T4LOm');
-    $componentTag = $_instance->getRenderedChildComponentTagName('N1T4LOm');
-    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('N1T4LOm');
-} else {
-    $response = \Livewire\Livewire::mount('passenger.index');
-    $html = $response->html();
-    $_instance->logRenderedChild('N1T4LOm', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
-}
-echo $html;
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('passenger.index');
+
+$__html = app('livewire')->mount($__name, $__params, 'P8n6QpH', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
 ?>
         </div>
     </div>
