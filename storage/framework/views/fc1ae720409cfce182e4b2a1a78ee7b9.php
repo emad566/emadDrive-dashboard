@@ -18,19 +18,20 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
             <?php
-if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('captain.index')->html();
-} elseif ($_instance->childHasBeenRendered('98RMCvQ')) {
-    $componentId = $_instance->getRenderedChildComponentId('98RMCvQ');
-    $componentTag = $_instance->getRenderedChildComponentTagName('98RMCvQ');
-    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('98RMCvQ');
-} else {
-    $response = \Livewire\Livewire::mount('captain.index');
-    $html = $response->html();
-    $_instance->logRenderedChild('98RMCvQ', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
-}
-echo $html;
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('captain.index');
+
+$__html = app('livewire')->mount($__name, $__params, 'D10C8JZ', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
 ?>
         </div>
     </div>
