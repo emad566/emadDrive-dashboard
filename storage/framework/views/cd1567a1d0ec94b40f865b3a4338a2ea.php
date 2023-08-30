@@ -1,6 +1,6 @@
 <div x-data="{
-    name:  <?php if ((object) ('roleEdit.name') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($_instance->id); ?>').entangle('<?php echo e('roleEdit.name'->value()); ?>')<?php echo e('roleEdit.name'->hasModifier('defer') ? '.defer' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($_instance->id); ?>').entangle('<?php echo e('roleEdit.name'); ?>')<?php endif; ?>.defer,
-    selectedPermissions: <?php if ((object) ('selectedPermissionIds') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($_instance->id); ?>').entangle('<?php echo e('selectedPermissionIds'->value()); ?>')<?php echo e('selectedPermissionIds'->hasModifier('defer') ? '.defer' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($_instance->id); ?>').entangle('<?php echo e('selectedPermissionIds'); ?>')<?php endif; ?>.defer,
+    name:  <?php if ((object) ('name') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('name'->value()); ?>')<?php echo e('name'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('name'); ?>')<?php endif; ?>,
+    selectedPermissions: <?php if ((object) ('selectedPermissionIds') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('selectedPermissionIds'->value()); ?>')<?php echo e('selectedPermissionIds'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('selectedPermissionIds'); ?>')<?php endif; ?>,
 
     selectedPermissionsUpdated(el){
         this.selectedPermissions = this.selectedPermissions.map(str =>  parseInt(str, 10));
@@ -24,9 +24,9 @@
     },
 
     save(){
-        window.livewire.find('<?php echo e($_instance->id); ?>').set('roleEdit.name', this.name)
-        window.livewire.find('<?php echo e($_instance->id); ?>').set('selectedPermissionIds', this.selectedPermissions)
-        window.livewire.find('<?php echo e($_instance->id); ?>').save()
+        window.Livewire.find('<?php echo e($_instance->getId()); ?>').set('name', this.name)
+        window.Livewire.find('<?php echo e($_instance->getId()); ?>').set('selectedPermissionIds', this.selectedPermissions)
+        window.Livewire.find('<?php echo e($_instance->getId()); ?>').save()
     }
 
 

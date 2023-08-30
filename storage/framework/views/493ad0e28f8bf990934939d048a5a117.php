@@ -1,4 +1,4 @@
-<?php if(!count($items)): ?>
+<!-- __BLOCK__ --><?php if(!count($items)): ?>
     <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.table.row','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('table.row'); ?>
@@ -17,5 +17,5 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-<?php endif; ?>
+<?php endif; ?> <!-- __ENDBLOCK__ -->
 <?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/components/table/nodata.blade.php ENDPATH**/ ?>

@@ -22,6 +22,7 @@
 <?php unset($__defined_vars); ?>
 <div class="d-flex justify-content-end mx-5">
     <button <?php echo e($attributes); ?> type="button" class="<?php echo e($class); ?>"><?php echo e($slot); ?> </button>
-    <i class="fas fa-spinner rotate" wire:loading wire:target="<?php echo e($target); ?>"></i>
+    <i <?php echo e($attributes); ?> class="fas fa-spinner rotate d-none" wire:loading.class.remove="d-none"></i>
+
 </div>
 <?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/components/buttons/save.blade.php ENDPATH**/ ?>

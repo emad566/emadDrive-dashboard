@@ -3,7 +3,7 @@
 
         <div class="card-toolbar">
             <ul class="nav nav-tabs nav-bold nav-tabs-line">
-                <?php echo e($title); ?>
+                <?php echo e($tabTitle); ?>
 
             </ul>
         </div>

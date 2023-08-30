@@ -28,9 +28,9 @@
 <?php unset($__defined_vars); ?>
 
 <option value="<?php echo e($key); ?>"><?php echo e(__($value)); ?></option>
-<?php $__currentLoopData = $options; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $opt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!-- __BLOCK__ --><?php $__currentLoopData = $options; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $opt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <option value="<?php echo e($opt); ?>"><?php echo e(__($opt)); ?></option>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <!-- __ENDBLOCK__ -->
 
 
 <?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/components/options/options.blade.php ENDPATH**/ ?>

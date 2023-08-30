@@ -1,6 +1,6 @@
 <div x-data="{
-    name:  @entangle('roleEdit.name').defer,
-    selectedPermissions: @entangle('selectedPermissionIds').defer,
+    name:  @entangle('name'),
+    selectedPermissions: @entangle('selectedPermissionIds'),
 
     selectedPermissionsUpdated(el){
         this.selectedPermissions = this.selectedPermissions.map(str =>  parseInt(str, 10));
@@ -24,7 +24,7 @@
     },
 
     save(){
-        @this.set('roleEdit.name', this.name)
+        @this.set('name', this.name)
         @this.set('selectedPermissionIds', this.selectedPermissions)
         @this.save()
     }

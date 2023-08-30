@@ -1,12 +1,12 @@
-<form wire:submit.prevent="save" x-show="show">
+<form wire:submit="save"   x-show="show" x-on:alert-saved.window="show=false">
     <x-modal.dialog>
         <x-slot name="title"> {{__(($permissionEdit?->id)? 'Edit' : 'Add')}}: {{ $permissionEdit?->name }}</x-slot>
         <x-slot name="content">
-            <i class="fas fa-spinner rotate" wire:loading ></i>
+            <x-snippets.loading wire:target="edit" />
 
             <div class="row">
-                <x-form.input wire:model.lazy="permissionEdit.name" name="permissionEdit.name" :label="__('Name')" :placeholder="__('Name')" wrapperClasses="col-12"/>
-                <x-form.select2 inputId="parentId" :select2="true" wire:model.lazy="permissionEdit.parent_id" name="permissionEdit.parent_id" :label="__('Parent')" wrapperClasses="col-12">
+                <x-form.input wire:model.blur="permissionEdit.name" name="permissionEdit.name" :label="__('Name')" :placeholder="__('Name')" wrapperClasses="col-12"/>
+                <x-form.select2 inputId="parentId" :select2="true" wire:model.blur="permissionEdit.parent_id" name="permissionEdit.parent_id" :label="__('Parent')" wrapperClasses="col-12">
                     <x-options.options-key :options="$all_permissions" val="id" text="name" />
                 </x-form.select2>
             </div>

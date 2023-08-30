@@ -41,13 +41,13 @@
 
 
 <div id="<?php echo e($id); ?>" class="form-group <?php echo e($id); ?> <?php echo e($wrapperClasses); ?> ">
-    <?php if($label): ?> <label class="<?php echo e($labelClasses); ?>" for="<?php echo e($name); ?>"><?php echo e($label); ?> <span class="text-danger"><?php echo e($required); ?></span></label> <?php endif; ?>
+    <!-- __BLOCK__ --><?php if($label): ?> <label class="<?php echo e($labelClasses); ?>" for="<?php echo e($name); ?>"><?php echo e($label); ?> <span class="text-danger"><?php echo e($required); ?></span></label> <?php endif; ?> <!-- __ENDBLOCK__ -->
     <select  id="<?php echo e($name); ?>" <?php echo e($attributes); ?> name="<?php echo e($name); ?>" class="form-control px-10 <?php echo e($class); ?> <?php if($errors->first($name)): ?> outline outline-red-800 outline-1 <?php endif; ?>" >
           <?php echo e($slot); ?>
 
     </select>
 
-    <?php if($hint): ?> <span class="form-text text-muted"><?php echo e($hint); ?></span> <?php endif; ?>
-    <?php if($errors->first($name)): ?> <span class="form-text text-danger"><?php echo e($errors->first($name)); ?></span> <?php endif; ?>
+    <!-- __BLOCK__ --><?php if($hint): ?> <span class="form-text text-muted"><?php echo e($hint); ?></span> <?php endif; ?> <!-- __ENDBLOCK__ -->
+    <!-- __BLOCK__ --><?php if($errors->first($name)): ?> <span class="form-text text-danger"><?php echo e($errors->first($name)); ?></span> <?php endif; ?> <!-- __ENDBLOCK__ -->
 </div>
 <?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/components/form/select.blade.php ENDPATH**/ ?>

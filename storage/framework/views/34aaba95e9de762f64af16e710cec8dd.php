@@ -1,4 +1,8 @@
-<form wire:submit.prevent="save">
+<form wire:submit="save" x-data="{
+    birthday: <?php if ((object) ('birthday') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('birthday'->value()); ?>')<?php echo e('birthday'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('birthday'); ?>')<?php endif; ?>.live,
+    national_expiry_date: <?php if ((object) ('national_expiry_date') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('national_expiry_date'->value()); ?>')<?php echo e('national_expiry_date'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('national_expiry_date'); ?>')<?php endif; ?>.live,
+    license_expiry_date: <?php if ((object) ('license_expiry_date') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('license_expiry_date'->value()); ?>')<?php echo e('license_expiry_date'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('license_expiry_date'); ?>')<?php endif; ?>.live,
+}">
     <div class="d-flex flex-wrap">
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.infos.info','data' => ['label' => __('Register step'),'value' => $captain->register_step . '/' . 4]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -82,14 +86,14 @@
 
     <div class="row">
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.input','data' => ['wire:model.lazy' => 'full_name','name' => 'full_name','label' => __('Full Name'),'placeholder' => __('Full Name')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.input','data' => ['wire:model.live' => 'full_name','name' => 'full_name','label' => __('Full Name'),'placeholder' => __('Full Name')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form.input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['wire:model.lazy' => 'full_name','name' => 'full_name','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Full Name')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Full Name'))]); ?>
+<?php $component->withAttributes(['wire:model.live' => 'full_name','name' => 'full_name','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Full Name')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Full Name'))]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -97,14 +101,14 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.input','data' => ['wire:model.lazy' => 'mobile','name' => 'mobile','label' => __('Mobile'),'placeholder' => __('Mobile'),'maxlength' => '11','minlength' => '11']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.input','data' => ['wire:model.blur' => 'mobile','name' => 'mobile','label' => __('Mobile'),'placeholder' => __('Mobile'),'maxlength' => '11','minlength' => '11']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form.input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['wire:model.lazy' => 'mobile','name' => 'mobile','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Mobile')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Mobile')),'maxlength' => '11','minlength' => '11']); ?>
+<?php $component->withAttributes(['wire:model.blur' => 'mobile','name' => 'mobile','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Mobile')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Mobile')),'maxlength' => '11','minlength' => '11']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -112,14 +116,14 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.input','data' => ['wire:model.lazy' => 'email','name' => 'email','type' => 'email','label' => __('Email'),'placeholder' => __('Email')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.input','data' => ['wire:model.blur' => 'email','name' => 'email','type' => 'email','label' => __('Email'),'placeholder' => __('Email')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('form.input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['wire:model.lazy' => 'email','name' => 'email','type' => 'email','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Email')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Email'))]); ?>
+<?php $component->withAttributes(['wire:model.blur' => 'email','name' => 'email','type' => 'email','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Email')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Email'))]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -127,14 +131,14 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.input','data' => ['class' => 'pikaday','wire:model.lazy' => 'birthday','name' => 'birthday','label' => __('Birthday'),'placeholder' => __('Birthday')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('form.input'); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.date','data' => ['wire:model.live' => 'birthday','name' => 'birthday','label' => __('Birthday'),'placeholder' => __('Birthday')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('form.date'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'pikaday','wire:model.lazy' => 'birthday','name' => 'birthday','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Birthday')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Birthday'))]); ?>
+<?php $component->withAttributes(['wire:model.live' => 'birthday','name' => 'birthday','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Birthday')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Birthday'))]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -142,14 +146,14 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.input','data' => ['class' => 'pikaday','wire:model.lazy' => 'national_expiry_date','name' => 'national_expiry_date','label' => __('National expiry date'),'placeholder' => __('National expiry date')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('form.input'); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.date','data' => ['wire:model.live' => 'national_expiry_date','name' => 'national_expiry_date','label' => __('National expiry date'),'placeholder' => __('National expiry date')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('form.date'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'pikaday','wire:model.lazy' => 'national_expiry_date','name' => 'national_expiry_date','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('National expiry date')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('National expiry date'))]); ?>
+<?php $component->withAttributes(['wire:model.live' => 'national_expiry_date','name' => 'national_expiry_date','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('National expiry date')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('National expiry date'))]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -157,14 +161,14 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.input','data' => ['class' => 'pikaday','wire:model.lazy' => 'license_expiry_date','name' => 'license_expiry_date','label' => __('License expiry date'),'placeholder' => __('License expiry date')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('form.input'); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.form.date','data' => ['wire:model.live' => 'license_expiry_date','name' => 'license_expiry_date','label' => __('License expiry date'),'placeholder' => __('License expiry date')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('form.date'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'pikaday','wire:model.lazy' => 'license_expiry_date','name' => 'license_expiry_date','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('License expiry date')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('License expiry date'))]); ?>
+<?php $component->withAttributes(['wire:model.live' => 'license_expiry_date','name' => 'license_expiry_date','label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('License expiry date')),'placeholder' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('License expiry date'))]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -218,5 +222,6 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
     </div>
+
 </form>
 <?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/livewire/captain/edit-basic-info.blade.php ENDPATH**/ ?>

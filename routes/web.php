@@ -1,6 +1,13 @@
 <?php
 namespace App\Http\Controllers\Dashboard;
 
+use App\Livewire\Captain\Captains;
+use App\Livewire\Captain\Edit;
+use App\Livewire\Dashboard\Home;
+use App\Livewire\Passenger\Passengers;
+use App\Livewire\permission\Permissions;
+use App\Livewire\role\Roles;
+use App\Livewire\user\Users;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,21 +26,23 @@ Route::get('/', function () {
 })->name('home');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
-    Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('dashboard');
+    Route::get('/', Home::class)->middleware(['auth'])->name('dashboard');
 
     // Localization En Ar from file ar.json
     Route::get('lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
 
     Route::group(['prefix' => 'accounts'], function () {
-        Route::resource('captains', CaptainController::class);
-        Route::get('passengers', PassengerController::class)->name('passengers.index');
-        Route::get('users', UserController::class)->name('users.index');
+        Route::get('captains', Captains::class)->name('captains.index');
+        Route::get('captains/edit/{captain}', Edit::class)->name('captains.edit');
+        Route::get('passengers', Passengers::class)->name('passengers.index');
+        Route::get('users', Users::class)->name('users.index');
 
         Route::group(['prefix' => 'users'], function () {
-            Route::get('roles', RoleController::class)->name('roles.index');
-            Route::get('permissions', PermissionController::class)->name('permissions.index');
+            Route::get('roles', Roles::class)->name('roles.index');
+            Route::get('permissions', Permissions::class)->name('permissions.index');
         });
     });
+
 });
 
 

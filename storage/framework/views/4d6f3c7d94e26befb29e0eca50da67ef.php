@@ -19,28 +19,36 @@
 <?php unset($__defined_vars); ?>
 
 <script>
-    $(".<?php echo e($class); ?>").click(function(e) {
-        Swal.fire({
-            title: "<?php echo e(__("Are you sure?")); ?>",
-            text: "<?php echo e(__("You will not be able to revert this!")); ?>",
-            icon: "warning",
-            showCancelButton: true,
-            cancelButtonText: "<?php echo e(__("Cancel")); ?>",
-            confirmButtonText: "<?php echo e(__("Yes, delete it!")); ?>"
-        }).then(function(result) {
-        if (result.value) {
-                var userId = e.target.getAttribute('action-id');
-                window.livewire.find('<?php echo e($_instance->id); ?>').destroy(userId)
-                window.addEventListener('alert-delete', function (){
-                    Swal.fire(
-                        "<?php echo e(__("Deleted!")); ?>",
-                        "<?php echo e(__("Your item has been deleted.")); ?>",
-                        "success"
-                    )
-                })
-
-            }
-        });
+    window.addEventListener('sweet-init', event => {
+        sweetInit();
     });
+
+    function sweetInit(){
+        $('.<?php echo e($class); ?>').click(function(e) {
+            Swal.fire({
+                title: '<?php echo e(__('Are you sure?')); ?>',
+                text: '<?php echo e(__('You will not be able to revert this!')); ?>',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: '<?php echo e(__('Cancel')); ?>',
+                confirmButtonText: '<?php echo e(__('Yes, delete it!')); ?>'
+            }).then(function(result) {
+                if (result.value) {
+                    var userId = e.target.getAttribute('action-id');
+                window.Livewire.find('<?php echo e($_instance->getId()); ?>').destroy(userId)
+                    window.addEventListener('alert-delete', function (){
+                        Swal.fire(
+                            '<?php echo e(__('Deleted!')); ?>',
+                            '<?php echo e(__('Your item has been deleted.')); ?>',
+                            'success'
+                        )
+                    })
+
+                }
+            });
+        });
+    }
+
+    sweetInit();
 </script>
 <?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/components/sweet/delete.blade.php ENDPATH**/ ?>

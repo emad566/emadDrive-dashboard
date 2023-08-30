@@ -3,7 +3,7 @@
 
         <div class="card-toolbar">
             <ul class="nav nav-tabs nav-bold nav-tabs-line">
-                {{ $title }}
+                {{ $tabTitle }}
             </ul>
         </div>
         <div class="card-title">

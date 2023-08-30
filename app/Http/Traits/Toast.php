@@ -10,8 +10,7 @@ Trait Toast{
      */
     public function alertSuccess($message)
     {
-        $this->dispatchBrowserEvent('alert',
-            ['type' => 'success',  'message' => $message]);
+        $this->dispatch('alert', type: 'success',  message: $message);
     }
 
     /**
@@ -21,9 +20,7 @@ Trait Toast{
      */
     public function alertError($message, $th=false)
     {
-        $this->dispatchBrowserEvent('alert',
-//            ['type' => 'error',  'message' => $message . (App::hasDebugModeEnabled() && $th != false)? ": line"."[".$th?->getLine()."]" : '']);
-            ['type' => 'error',  'message' => $message]);
+        $this->dispatch('alert', type: 'error',  message: $message);
     }
 
     /**
@@ -33,7 +30,6 @@ Trait Toast{
      */
     public function alertInfo($message)
     {
-        $this->dispatchBrowserEvent('alert',
-            ['type' => 'info',  'message' => $message]);
+        $this->dispatch('alert', type: 'info',  message: $message);
     }
 }

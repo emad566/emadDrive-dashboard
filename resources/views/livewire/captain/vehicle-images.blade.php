@@ -1,4 +1,4 @@
-<form wire:submit.prevent="save">
+<form wire:submit="save">
     <div class="row">
         <x-images.card-image wrapperClass="col-xs-12 col-md-6 pd-10 mb-10" imgClass="h-275px" :src="asset('storage/'.$vehicle->vehicle_front)" :title="__('Vehicle front')"/>
         <x-images.card-image wrapperClass="col-xs-12 col-md-6 pd-10 mb-10" imgClass="h-275px" :src="asset('storage/'.$vehicle->vehicle_back)" :title="__('Vehicle back')"/>

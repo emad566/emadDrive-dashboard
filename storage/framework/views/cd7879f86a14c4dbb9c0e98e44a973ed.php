@@ -42,18 +42,18 @@
 <div class="form-group <?php echo e($wrapperClasses); ?>">
     <label><?php echo e($label); ?></label>
     <div class="radio-inline">
-        <?php for($i=0; $i<count($options); $i++): ?>
+        <!-- __BLOCK__ --><?php for($i=0; $i<count($options); $i++): ?>
             <?php $checked = $values[$i] === $checkedValue? 'checked="checked"' : ''  ?>
             <label class="radio radio-lg">
-                <input wire:model.lazy="gender" type="radio" value="<?php echo e($values[$i]); ?>" <?php echo e($checked); ?> name="<?php echo e($name); ?>" class="transition-all duration-1000"/>
+                <input wire:model.blur="gender" type="radio" value="<?php echo e($values[$i]); ?>" <?php echo e($checked); ?> name="<?php echo e($name); ?>" class="transition-all duration-1000"/>
                 <span></span>
                 <?php echo e($options[$i]); ?>
 
             </label>
-        <?php endfor; ?>
+        <?php endfor; ?> <!-- __ENDBLOCK__ -->
     </div>
-    <?php if($hint): ?> <span class="form-text text-muted"><?php echo e($hint); ?></span> <?php endif; ?>
-    <?php if($errors->first($name)): ?> <span class="form-text text-danger"><?php echo e($errors->first($name)); ?></span> <?php endif; ?>
+    <!-- __BLOCK__ --><?php if($hint): ?> <span class="form-text text-muted"><?php echo e($hint); ?></span> <?php endif; ?> <!-- __ENDBLOCK__ -->
+    <!-- __BLOCK__ --><?php if($errors->first($name)): ?> <span class="form-text text-danger"><?php echo e($errors->first($name)); ?></span> <?php endif; ?> <!-- __ENDBLOCK__ -->
 
 </div>
 <?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/components/form/radios.blade.php ENDPATH**/ ?>

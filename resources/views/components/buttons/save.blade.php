@@ -4,5 +4,6 @@
 ])
 <div class="d-flex justify-content-end mx-5">
     <button {{ $attributes }} type="button" class="{{ $class }}">{{ $slot }} </button>
-    <i class="fas fa-spinner rotate" wire:loading wire:target="{{$target}}"></i>
+    <i {{ $attributes }} class="fas fa-spinner rotate d-none" wire:loading.class.remove="d-none"></i>
+
 </div>

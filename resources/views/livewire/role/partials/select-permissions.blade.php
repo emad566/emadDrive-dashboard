@@ -3,13 +3,13 @@
 
 <div class="row">
     <x-form.input
-        wire:model="permission_search"
+        wire:model.live="permission_search"
         name="permission_search"
         :label="__('Permissions')"
         :placeholder=" __('Permissions') . ' ... ' . __('Search') . ' ... ' "
         wrapperClasses="col-12"
     />
-    <i class="fas fa-spinner rotate" wire:loading ></i>
+    <x-snippets.loading wire:target="edit" />
 
 </div>
 

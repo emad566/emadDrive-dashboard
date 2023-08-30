@@ -1,0 +1,2 @@
+<i <?php echo e($attributes); ?> class="fas fa-spinner rotate d-none" wire:loading.class.remove="d-none"></i>
+<?php /**PATH D:\wamp64\www\atmo-ndash\resources\views/components/snippets/loading.blade.php ENDPATH**/ ?>
