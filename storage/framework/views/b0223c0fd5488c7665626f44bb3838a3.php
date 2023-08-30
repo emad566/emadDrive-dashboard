@@ -24,7 +24,7 @@ $__split = function ($name, $params = []) {
 };
 [$__name, $__params] = $__split('passenger.index');
 
-$__html = app('livewire')->mount($__name, $__params, 'P8n6QpH', $__slots ?? [], get_defined_vars());
+$__html = app('livewire')->mount($__name, $__params, 'Q2KNC3Y', $__slots ?? [], get_defined_vars());
 
 echo $__html;
 
