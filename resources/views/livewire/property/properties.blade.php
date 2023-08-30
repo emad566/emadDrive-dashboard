@@ -30,6 +30,7 @@
         <x-table.table>
             <x-slot name="head">
                 <x-table.heading>{{ __('#') }}</x-table.heading>
+                <x-table.heading>{{ __('Icon') }}</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('title')" :direction="$sort_field === 'title'? $sort_direction : null">{{ __('Title') }}</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('status')" :direction="$sort_field === 'status'? $sort_direction : null">{{ __('Status') }}</x-table.heading>
                 <x-table.heading>{{ __('Actions') }}</x-table.heading>
@@ -41,6 +42,7 @@
                         <x-table.cell>
                             <x-snippets.avatar>{{ $item->id }}</x-snippets.avatar>
                         </x-table.cell>
+                        <x-table.cell>{!! $item->icon !!}</x-table.cell>
                         <x-table.cell>{{ $item->title }}</x-table.cell>
                         <x-table.cell>
                             <x-form.switch  wire:click="status_switch({{ __($item->id) }})" >{{ $item->status_switch }}</x-form.switch>
