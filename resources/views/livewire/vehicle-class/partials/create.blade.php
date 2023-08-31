@@ -16,7 +16,7 @@
                 <x-form.input wire:model.blur="currentItem.cancel_value" name="currentItem.cancel_value" :label="__('cancel Value')" :placeholder="__('cancel Value')" wrapperClasses="col-12"/>
                 <x-form.input wire:model.blur="currentItem.outside_town" name="currentItem.outside_town" :label="__('outside Town')" :placeholder="__('outside Town')" wrapperClasses="col-12"/>
                 <x-form.input wire:model.blur="currentItem.add_value" name="currentItem.add_value" :label="__('add Value')" :placeholder="__('add Value')" wrapperClasses="col-12"/>
-                <x-form.input wire:model.blur="currentItem.status" name="currentItem.status" :label="__('Status')" :placeholder="__('Status')" wrapperClasses="col-12"/>
+                <x-form.switch-label :checked="$item?->status_switch" wire:click="status_switch({{ __($item->id) }})" :label="__('Status')" wrapperClasses="row">1</x-form.switch-label>
             </div>
         </x-slot>
         <x-slot name="footer">

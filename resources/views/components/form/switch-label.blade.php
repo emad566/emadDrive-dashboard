@@ -1,12 +1,13 @@
 @props([
     'wrapperClasses'=>'col-3',
-    'label'=>''
+    'label'=>'',
+    'checked'=>''
 ])
 
 <div class="{{ $wrapperClasses }}">
     <span class="switch switch-sm switch-icon pl-5">
         <label>
-            <input {{ $attributes }} type="checkbox" value="{{ $slot }}" />
+            <input {{ $attributes }} {{ $checked }} type="checkbox" value="{{ $slot }}" />
             <span></span>
         </label>
     </span>
