@@ -9,6 +9,7 @@ use App\Livewire\permission\Permissions;
 use App\Livewire\Property\Properties;
 use App\Livewire\role\Roles;
 use App\Livewire\user\Users;
+use App\Livewire\VehicleClass\VehicleClassComponent;
 use App\Models\Property;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +37,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'accounts'], function () {
         Route::get('captains', Captains::class)->name('captains.index');
         Route::get('captains/edit/{captain}', Edit::class)->name('captains.edit');
-        Route::get('captains/properties', Properties::class)->name('properties.index');
         Route::get('passengers', Passengers::class)->name('passengers.index');
         Route::get('users', Users::class)->name('users.index');
 
@@ -44,6 +44,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
             Route::get('roles', Roles::class)->name('roles.index');
             Route::get('permissions', Permissions::class)->name('permissions.index');
         });
+    });
+
+    Route::group(['prefix' => 'vehicles'], function (){
+        Route::get('/', VehicleClassComponent::class)->name('vehicles.index');
+        Route::get('/properties', Properties::class)->name('properties.index');
     });
 
 });
