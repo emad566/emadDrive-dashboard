@@ -14,7 +14,7 @@ class VehicleClassComponent extends Component
     use WithPagination, Toast;
 
     public string $search = '';
-    public string $sort_field = 'title';
+    public string $sort_field = 'name';
     public string $sort_direction = 'desc';
     protected $queryString = ['sort_field', 'sort_direction'];
     public $paginate;
