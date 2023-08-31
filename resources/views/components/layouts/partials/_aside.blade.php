@@ -152,6 +152,32 @@
                 </div>
             </li>
             <!-- /users -->
+
+            <!-- settings -->
+            <li class="menu-item menu-item-submenu {{ request()->is('dashboard/settings*') ? 'menu-item-open' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
+                <a href="javascript:;" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                        <i class="fas fa-cogs text-primary icon-lg"></i>
+                    </span>
+                    <span class="menu-text">{{ __('Settings') }}</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="menu-submenu">
+                    <i class="menu-arrow"></i>
+                    <ul class="menu-subnav">
+
+                        <li class="menu-item {{ (request()->is('dashboard/settings')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                            <a wire:navigate href="{{ route('settings.index') }}" class="menu-link">
+                                            <span class="svg-icon menu-icon">
+                                                <i class="fas fa-cogs text-primary icon-md"></i>
+                                            </span>
+                                <span class="menu-text">{{ __('Settings') }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <!-- /settings -->
         </ul>
     </div>
 </div>

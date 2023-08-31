@@ -8,6 +8,7 @@ use App\Livewire\Passenger\Passengers;
 use App\Livewire\permission\Permissions;
 use App\Livewire\Property\Properties;
 use App\Livewire\role\Roles;
+use App\Livewire\Settings\SettingsComponent;
 use App\Livewire\user\Users;
 use App\Models\Property;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
             Route::get('roles', Roles::class)->name('roles.index');
             Route::get('permissions', Permissions::class)->name('permissions.index');
         });
+    });
+
+    Route::group(['prefix' => 'settings'], function () {
+        Route::get('/', SettingsComponent::class)->name('settings.index');
     });
 
 });
