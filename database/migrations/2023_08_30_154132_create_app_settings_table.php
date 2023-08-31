@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('app_settings', function (Blueprint $table) {
             $table->id();
             $table->string('key');
-            $table->string('value');
-            $table->string('description');
+            $table->json('value');
+            $table->json('description');
+            $table->json('label');
             $table->string('type');
+            $table->string('roles')->default('nullable');
             $table->boolean('status')->default(true);
         });
     }
