@@ -69,6 +69,7 @@ class Permissions extends Component
         $this->cancel();
         $this->alertSuccess(__('Saved'));
         $this->dispatch('alert-saved');
+        $this->all_permissions = Permission::all();
     }
 
     public function cancel()
