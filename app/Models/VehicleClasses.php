@@ -10,4 +10,8 @@ class VehicleClasses extends Model
     use HasFactory;
     protected $table='vehicle_classes';
     protected $guarded =[];
+
+    public function getStatusSwitchAttribute(){
+        return $this->status? 'checked="checked"' : '';
+    }
 }

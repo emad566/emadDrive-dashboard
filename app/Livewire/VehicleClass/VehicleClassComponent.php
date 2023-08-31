@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Livewire\Property;
+namespace App\Livewire\VehicleClass;
 
 use App\Http\Controllers\General\ConstantController;
 use App\Http\Controllers\General\OptionsController;
 use App\Http\Traits\Toast;
-use App\Models\Property;
+use App\Models\VehicleClasses;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Properties extends Component
+class VehicleClassComponent extends Component
 {
     use WithPagination, Toast;
 
     public string $search = '';
-    public string $sort_field = 'title';
+    public string $sort_field = 'name';
     public string $sort_direction = 'desc';
     protected $queryString = ['sort_field', 'sort_direction'];
     public $paginate;
@@ -24,17 +24,27 @@ class Properties extends Component
     public $show_modal = false;
     public $is_edit = false;
 
-    public Property $currentItem;
+    public VehicleClasses $currentItem;
 
-    public function status_switch(Property $property){
-        $property->update(['status'=>$property->status? 0 : 1]);
+    public function status_switch(VehicleClasses $item){
+        $item->update(['status'=>$item->status? 0 : 1]);
         $this->alertSuccess(__('Saved'));
     }
 
     public function rules(){
         return [
-            'currentItem.title'=>'required|min:3|max:20|unique:properties,title,'.$this->currentItem->id,
-            'currentItem.icon'=>'required|min:3|max:50|unique:properties,icon,'.$this->currentItem->id,
+            'currentItem.name'=>'required|min:3|max:20|unique:vehicle_classes,name,'.$this->currentItem->id,
+            'currentItem.description'=>'nullable|min:3|max:191',
+            'currentItem.icon'=>'required|min:3|max:50',
+            'currentItem.class'=>'required|min:3|max:50',
+            'currentItem.base_fare'=>'required|regex:/^\d{1,13}(\.\d{1,4})?$/',
+            'currentItem.distance'=>'required|regex:/^\d{1,13}(\.\d{1,4})?$/',
+            'currentItem.wait'=>'required|numeric|min:0|max:3600',
+            'currentItem.cost_small_destination'=>'required|regex:/^\d{1,13}(\.\d{1,4})?$/',
+            'currentItem.cancel_value'=>'required|regex:/^\d{1,13}(\.\d{1,4})?$/',
+            'currentItem.outside_town'=>'required|regex:/^\d{1,13}(\.\d{1,4})?$/',
+            'currentItem.add_value'=>'required|regex:/^\d{1,13}(\.\d{1,4})?$/',
+            'currentItem.status'=> 'nullable',
         ];
     }
 
@@ -45,7 +55,7 @@ class Properties extends Component
         $this->resetInputFields();
     }
 
-    public function edit(Property $item)
+    public function edit(VehicleClasses $item)
     {
         $this->resetInputFields();
         $this->is_edit = true;
@@ -53,7 +63,7 @@ class Properties extends Component
         $this->show_modal = true;
     }
 
-    public function destroy(Property $item)
+    public function destroy(VehicleClasses $item)
     {
         $item->delete();
         $this->dispatch('alert-delete');
@@ -69,7 +79,7 @@ class Properties extends Component
     }
 
     private function resetInputFields(){
-        $this->currentItem = Property::make();
+        $this->currentItem = VehicleClasses::make();
         $this->resetErrorBag();
     }
 
@@ -99,16 +109,15 @@ class Properties extends Component
 
     function search()
     {
-        $result = Property::search('title', $this->search)
+        $result = VehicleClasses::search('name', $this->search)
             ->orderBy($this->sort_field, $this->sort_direction);
         return $this->paginate == 'all'? $result->get() : $result->paginate($this->paginate);
     }
 
     public function render()
     {
-        return view('livewire.property.properties', [
+        return view('livewire.vehicle-class.vehicle-class-component', [
             'items'=> $this->search(),
         ]);
     }
-
 }

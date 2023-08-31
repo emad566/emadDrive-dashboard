@@ -14,4 +14,8 @@ class Property extends Model
         'icon',
         'status'
     ];
+
+    public function getStatusSwitchAttribute(){
+        return $this->status ? 'checked="checked"' : '';
+    }
 }
