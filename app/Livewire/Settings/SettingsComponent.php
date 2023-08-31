@@ -25,7 +25,7 @@ class SettingsComponent extends Component
 
     public function updatedTitle()
     {
-        AppSettings::where('key', 'title')->first()->update(['title'=>$this->title]);
+        AppSettings::where('key', 'title')->first()->update(['value'=>$this->title]);
         $this->alertSuccess(__('Saved'));
     }
 

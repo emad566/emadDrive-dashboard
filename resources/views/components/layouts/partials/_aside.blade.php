@@ -152,7 +152,70 @@
                 </div>
             </li>
             <!-- /users -->
+
+            <!-- vehicles -->
+            <li class="menu-item menu-item-submenu {{ request()->is('dashboard/vehicles*') ? 'menu-item-open' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
+                <a href="javascript:;" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
+                        <i class="fa fas fa-car text-primary icon-lg"></i>
+                    </span>
+                    <span class="menu-text">{{ __('Vehicles') }}</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="menu-submenu">
+                    <i class="menu-arrow"></i>
+
+                    <ul class="menu-subnav">
+                        <li class="menu-item {{ (request()->is('dashboard/*')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                            <a wire:navigate href="{{ route('vehicles.index') }}" class="menu-link">
+                                            <span class="svg-icon menu-icon">
+                                                <i class="fa fas fa-car text-primary icon-md"></i>
+                                            </span>
+                                <span class="menu-text">{{ __('Vehicle Class') }}</span>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ (request()->is('dashboard/vehicles/properties*')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                            <a wire:navigate href="{{ route('properties.index') }}" class="menu-link">
+                                            <span class="svg-icon menu-icon">
+                                                <i class="fa fas fa-universal-access text-primary icon-md"></i>
+                                            </span>
+                                <span class="menu-text">{{ __('Properties') }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <!-- /vehicles -->
+
+            <!-- settings -->
+            <li class="menu-item menu-item-submenu {{ request()->is('dashboard/settings*') ? 'menu-item-open' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
+                <a href="javascript:;" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                        <i class="fas fa-cogs text-primary icon-lg"></i>
+                    </span>
+                    <span class="menu-text">{{ __('Settings') }}</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="menu-submenu">
+                    <i class="menu-arrow"></i>
+                    <ul class="menu-subnav">
+
+                        <li class="menu-item {{ (request()->is('dashboard/settings')) ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                            <a wire:navigate href="{{ route('settings.index') }}" class="menu-link">
+                                            <span class="svg-icon menu-icon">
+                                                <i class="fas fa-cogs text-primary icon-md"></i>
+                                            </span>
+                                <span class="menu-text">{{ __('Settings') }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <!-- /settings -->
         </ul>
     </div>
 </div>
+
+
 
