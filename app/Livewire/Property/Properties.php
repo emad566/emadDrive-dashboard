@@ -34,7 +34,8 @@ class Properties extends Component
     public function rules(){
         return [
             'currentItem.title'=>'required|min:3|max:20|unique:properties,title,'.$this->currentItem->id,
-            'currentItem.icon'=>'required|min:3|max:50|unique:properties,icon,'.$this->currentItem->id,
+            'currentItem.icon'=>'required|min:3|max:50',
+            'currentItem.status'=> 'nullable',
         ];
     }
 

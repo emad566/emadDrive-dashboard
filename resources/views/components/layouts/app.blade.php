@@ -16,7 +16,7 @@
               class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
         <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
             <a href="">
-                <img alt="Logo" class="h-50px" src="{{asset('assets/images/logo.png')}}" />
+                <img alt="Logo" src="{{asset('assets/images/atmo.png')}}" style="padding: 5px"/>
             </a>
 
             <div class="d-flex align-items-center">
@@ -47,7 +47,7 @@
                 <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
                     <div class="brand flex-column-auto" id="kt_brand">
                         <a href="" class="brand-logo" data-turbolinks="true">
-                            <img alt="Logo" height="50px" src="{{asset('assets/images/logo.png')}}" style="width: 50px;" />
+                            <img alt="Logo"  src="{{asset('assets/images/atmo.png')}}" style="width: 90%;" />
                         </a>
                         <button class="brand-toggle btn btn-sm px-0 " id="kt_aside_toggle">
                         <span class="svg-icon svg-icon svg-icon-xl">

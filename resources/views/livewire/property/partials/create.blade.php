@@ -7,6 +7,7 @@
             <div class="row">
                 <x-form.input wire:model.blur="currentItem.title" name="currentItem.title" :label="__('Title')" :placeholder="__('Title')" wrapperClasses="col-12"/>
                 <x-form.input wire:model.blur="currentItem.icon" name="currentItem.icon" :label="__('Icon')" :placeholder="__('Icon')" wrapperClasses="col-12"/>
+                <x-form.switch-label wire:model.blur="currentItem.status"  :label="__('Status')" wrapperClasses="row">1</x-form.switch-label>
             </div>
         </x-slot>
         <x-slot name="footer">

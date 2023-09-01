@@ -46,7 +46,7 @@
                     <!--begin::Login Header-->
                     <div class="d-flex flex-center mb-15">
                         <a href="{{route('login')}}">
-                            <img src="{{asset('assets/images/logo.png')}}" class="max-h-100px" alt="AtmoDrive" />
+                            <img src="{{asset('assets/images/atmo.png')}}" class="max-h-100px" alt="AtmoDrive" />
                         </a>
                     </div>
                     <!--end::Login Header-->

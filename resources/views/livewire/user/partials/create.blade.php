@@ -9,7 +9,7 @@
                 <x-form.input wire:model.blur="userEdit.mobile" name="userEdit.mobile" :label="__('Mobile')" :placeholder="__('Mobile')" maxlength='11' minlength='11' wrapperClasses="col-12"/>
                 <x-form.input wire:model.blur="userEdit.email" name="userEdit.email" type="email" :label="__('Email')" :placeholder="__('Email')" wrapperClasses="col-12"/>
                 <x-form.select2 inputId="rolesId" :select2="true" wire:model.live="selectetRoleId" name="selectetRoleId" :label="__('Role')" wrapperClasses="col-12">
-                    <x-options.options-key :options="$roles" val="id" text="name" />
+                    <x-options.options-key :trans="false" :options="$roles" val="id" text="name" />
                 </x-form.select2>
                 <div x-show="isCreate" class="col-12">
                     <x-form.input wire:model.blur="password" name="password" type="password" :label="__('Password')" :placeholder="__('Password')" wrapperClasses="col-12"/>

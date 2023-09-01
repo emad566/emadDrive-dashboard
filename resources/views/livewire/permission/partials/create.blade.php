@@ -7,7 +7,7 @@
             <div class="row">
                 <x-form.input wire:model.blur="permissionEdit.name" name="permissionEdit.name" :label="__('Name')" :placeholder="__('Name')" wrapperClasses="col-12"/>
                 <x-form.select2 inputId="parentId" :select2="true" wire:model.blur="permissionEdit.parent_id" name="permissionEdit.parent_id" :label="__('Parent')" wrapperClasses="col-12">
-                    <x-options.options-key :options="$all_permissions" val="id" text="name" />
+                    <x-options.options-key :trans="false" :options="$all_permissions" val="id" text="name" />
                 </x-form.select2>
             </div>
 

@@ -75,7 +75,7 @@
                             <form action="{{ route('login') }}" method="post">
                                 @csrf
                                 <div class="contact-top">
-                                    <img src="{{asset('images/logo.png')}}" alt="">
+                                    <img src="{{asset('assets/images/logo.png')}}" alt="">
                                     <h5 class="text-secondary fw-3 py-3">
                                         تسجيل الدخول  </h5>
                                 </div>
