@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Livewire\Brand\BrandComponent;
 use App\Livewire\Captain\Captains;
 use App\Livewire\Captain\Edit;
-use App\Livewire\carmodel\CarmodelComponent;
+use App\Livewire\Carmodel\CarmodelComponent;
 use App\Livewire\Color\ColorComponent;
 use App\Livewire\Dashboard\Home;
 use App\Livewire\Passenger\Passengers;
