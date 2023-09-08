@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('properties', function (Blueprint $table) {
+        Schema::create('colors', function (Blueprint $table) {
             $table->id();
-            $table->string('ar_title');
-            $table->string('en_title');
-            $table->string('icon');
+            $table->string('ar_name');
+            $table->string('en_name');
+            $table->string('code');
             $table->boolean('status')->default(false);
             $table->timestamps();
-
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('properties');
+        Schema::dropIfExists('colors');
     }
 };

@@ -1,11 +1,11 @@
 <form wire:submit="save"   x-show="show" x-on:alert-saved.window="show=false">
     <x-modal.dialog>
-        <x-slot name="title">{{__($is_edit? 'Edit' : 'Add')}}: {{ $currentItem->title }} </x-slot>
+        <x-slot name="title">{{__($is_edit? 'Edit' : 'Add')}}: {{ $currentItem->$langName }} </x-slot>
         <x-slot name="content">
             <x-snippets.loading wire:target="edit" />
             <div class="row">
-                <x-form.input wire:model.blur="currentItem.ar_title" name="currentItem.ar_title" :label="__('Title') . __('ar')" :placeholder="__('Title') . __('ar')" wrapperClasses="col-12"/>
-                <x-form.input wire:model.blur="currentItem.en_title" name="currentItem.en_title" :label="__('Title') . __('en')" :placeholder="__('Title') . __('en')" wrapperClasses="col-12"/>
+                <x-form.input wire:model.blur="currentItem.ar_name" name="currentItem.ar_name" :label="__('Name')" :placeholder="__('Name')" wrapperClasses="col-12"/>
+                <x-form.input wire:model.blur="currentItem.en_name" name="currentItem.en_name" :label="__('Name')" :placeholder="__('Name')" wrapperClasses="col-12"/>
                 <x-form.switch-label wire:model.blur="currentItem.status"  :label="__('Status')" wrapperClasses="row pr-10">1</x-form.switch-label>
                 <x-form.image
                     :label="__('icon')"
@@ -15,8 +15,6 @@
                     wrapperClasses="col-12 mt-10 mr-10"
                 />
                 @if($errors->first('currentItem.icon')) <span class="form-text text-danger">{{ $errors->first('currentItem.icon') }}</span> @endif
-
-
             </div>
 
         </x-slot>

@@ -1,27 +1,24 @@
 <?php
 
-namespace App\Livewire\Property;
+namespace App\Livewire\Brand;
 
-use App\Http\Controllers\General\ConstantController;
-use App\Http\Controllers\General\OptionsController;
 use App\Http\Traits\Toast;
 use App\Http\Traits\WithTable;
-use App\Models\Property;
-use App\Models\Property as Model;
+use App\Models\Brand as Model;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class Properties extends Component
+class BrandComponent extends Component
 {
     use Toast, WithFileUploads, WithTable;
     protected const MODEL = Model::class;
-    public Property $currentItem;
+    public Model $currentItem;
     public $newIcon;
     public $newIconName;
     public function rules(){
         return [
-            'currentItem.ar_title'=>'required|min:3|max:20|unique:properties,ar_title,'.$this->currentItem->id,
-            'currentItem.en_title'=>'required|min:3|max:20|unique:properties,en_title,'.$this->currentItem->id,
+            'currentItem.ar_name'=>'required|min:3|max:20|unique:brands,ar_name,'.$this->currentItem->id,
+            'currentItem.en_name'=>'required|min:3|max:20|unique:brands,en_name,'.$this->currentItem->id,
             'currentItem.icon'=>'required|min:3|max:191',
             'currentItem.status'=> 'nullable',
         ];
@@ -32,7 +29,7 @@ class Properties extends Component
         $this->validate([
             'newIcon' => 'image|max:512'
         ]);
-        $this->newIconName = uploadToStorage($this->newIcon, 'properties');
+        $this->newIconName = uploadToStorage($this->newIcon, 'brands');
         $this->currentItem->icon = $this->newIconName;
     }
 
@@ -44,7 +41,7 @@ class Properties extends Component
         $this->show_modal = true;
     }
 
-    public function edit(Property $item)
+    public function edit(Model $item)
     {
         $this->newIconName = '';
         $this->newIcon = '';
@@ -68,16 +65,17 @@ class Properties extends Component
 
     function search()
     {
-        $result = MODEL::search('ar_title', $this->search)
-            ->orSearch('en_title', $this->search)
+        $result = MODEL::search('ar_name', $this->search)
+            ->orSearch('en_name', $this->search)
             ->orderBy($this->sort_field, $this->sort_direction);
         return $this->paginate == 'all'? $result->get() : $result->paginate($this->paginate);
     }
 
     public function render()
     {
-        return view('livewire.property.properties', [
+        return view('livewire.brand.brand-component', [
             'items'=> $this->search(),
+            'langName' => getLocal() . '_name'
         ]);
     }
 }

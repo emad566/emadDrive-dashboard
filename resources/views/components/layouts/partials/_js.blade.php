@@ -87,6 +87,13 @@
 
 
 
+
+
+{{-- toaster --}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
 <script defer>
     window.onload= function(){
         // START:: Toast alert listener
@@ -115,11 +122,6 @@
         // END:: Toast alert listener
     }
 </script>
-{{-- /pikaday --}}
-
-{{-- toaster --}}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <style>
     .toast-success{

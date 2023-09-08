@@ -13,8 +13,8 @@
         </div>
         <div class="card-toolbar">
             <a wire:click.prevent="create" class="btn btn-primary font-weight-bolder" x-on:click="show=true; isCreate=true" >
-                <i class="la la-plus"></i>{{__("New Property")}}</a>
-            <!--end::Button-->
+                <i class="la la-plus"></i>{{__("Add")}} {{__("Color")}}
+            </a>
         </div>
     </div>
 
@@ -37,13 +37,18 @@
             </x-slot>
 
             <x-slot name="body">
+                @php $langTitle = getLocal() . '_title' @endphp
                 @foreach($items as $item)
                     <x-table.row wire:loading.class="opacity-50" wire:target="search">
                         <x-table.cell>
                             <x-snippets.avatar>{{ $item->id }}</x-snippets.avatar>
                         </x-table.cell>
-                        <x-table.cell>{!! $item->icon !!}</x-table.cell>
-                        <x-table.cell>{{ $item->title }}</x-table.cell>
+                        <x-table.cell>
+                            <div class="symbol symbol-50px">
+                                <img src="{{ $item->icon_src }}" alt="">
+                            </div>
+                        </x-table.cell>
+                        <x-table.cell>{{ $item->$langTitle }}</x-table.cell>
                         <x-table.cell>
                             <x-form.switch :checked="$item->status_switch"  wire:click="status_switch({{ $item->id }})" >1</x-form.switch>
                         </x-table.cell>

@@ -3,23 +3,15 @@
 namespace App\Models;
 
 use App\Http\Controllers\General\ConstantController;
+use App\Http\Traits\StatusSwitch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
 
-class Property extends Model
+class Brand extends Model
 {
-    use HasFactory;
-    protected $table='properties';
-    protected $fillable=[
-        'title',
-        'icon',
-        'status'
-    ];
-
-    public function getStatusSwitchAttribute(){
-        return $this->status ? 'checked="checked"' : '';
-    }
+    use HasFactory, StatusSwitch;
+    protected $guarded = [];
+    protected $table = 'brands';
 
     function getIconSrcAttribute(): string
     {

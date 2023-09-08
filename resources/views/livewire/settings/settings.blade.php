@@ -15,14 +15,7 @@
 
     </div>
 
-    <div class="card-body" x-data="{
-        saveData(id, key){
-            var value = document.getElementById(key).value
-            @this.save(id, value)
-        }
-    }">
-        @foreach($items as $item)
-            <x-form.input  x-on:blur="saveData({{ $item->id }}, '{{ $item->key }}')" :value="$item->value" :name="$item->key" :label="$item->label" :hint="$item->description" :placeholder="$item->label" wrapperClasses="col-lg-12 col-md-12"/>
-        @endforeach
+    <div class="card-body">
+{{--        <x-form.input  x-on:blur="saveData({{ $item->id }}, '{{ $item->key }}')" :value="$item->value" :name="$item->key" :label="$item->label" :hint="$item->description" :placeholder="$item->label" wrapperClasses="col-lg-12 col-md-12"/>--}}
     </div>
 </div>

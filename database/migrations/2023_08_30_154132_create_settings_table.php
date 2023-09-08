@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('app_settings', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('key');
-            $table->json('value');
-            $table->json('description');
-            $table->json('label');
+            $table->string('value');
+            $table->string('description');
             $table->string('type');
-            $table->string('roles')->default('nullable');
             $table->boolean('status')->default(true);
+            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('app_settings');
+        Schema::dropIfExists('settings');
     }
 };

@@ -30,5 +30,13 @@ class AppServiceProvider extends ServiceProvider
         Builder::macro('orSearch', function ($field, $string) {
             return $string ? $this->orWhere($field, 'like', '%'.$string.'%') : $this;
         });
+
+        Builder::macro('active', function () {
+            return $this->where('status', 1);
+        });
+
+        Builder::macro('inActive', function () {
+            return $this->where('status', 0);
+        });
     }
 }

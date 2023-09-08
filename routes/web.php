@@ -1,8 +1,11 @@
 <?php
 namespace App\Http\Controllers\Dashboard;
 
+use App\Livewire\Brand\BrandComponent;
 use App\Livewire\Captain\Captains;
 use App\Livewire\Captain\Edit;
+use App\Livewire\carmodel\CarmodelComponent;
+use App\Livewire\Color\ColorComponent;
 use App\Livewire\Dashboard\Home;
 use App\Livewire\Passenger\Passengers;
 use App\Livewire\permission\Permissions;
@@ -53,6 +56,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'vehicles'], function (){
         Route::get('/', VehicleClassComponent::class)->name('vehicles.index');
         Route::get('/properties', Properties::class)->name('properties.index');
+        Route::get('/colors', ColorComponent::class)->name('colors.index');
+        Route::get('/brands', BrandComponent::class)->name('brands.index');
+        Route::get('/brand-models', CarmodelComponent::class)->name('models.index');
     });
 
 });

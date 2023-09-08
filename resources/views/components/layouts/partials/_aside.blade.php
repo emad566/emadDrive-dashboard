@@ -21,6 +21,9 @@
             <x-aside.menu title="Vehicles" iconName="fas fa-car" route="vehicles*">
                 <x-aside.link link="dashboard/*" route="vehicles.index" title="Vehicle Class" iconSize="md" iconName="fas fa-car"/>
                 <x-aside.link link="dashboard/vehicles/properties*" route="properties.index" title="Properties" iconSize="md" iconName="fas fa-universal-access"/>
+                <x-aside.link link="dashboard/vehicles/colors*" route="colors.index" title="Colors" iconSize="md" iconName="fas fa-palette"/>
+                <x-aside.link link="dashboard/vehicles/brands*" route="brands.index" title="Brands" iconSize="md" iconName="fas fa-copyright"/>
+                <x-aside.link link="dashboard/vehicles/brand-models*" route="models.index" title="Models" iconSize="md" iconName="fab fa-buromobelexperte"/>
             </x-aside.menu>
             <!-- /vehicles -->
 
