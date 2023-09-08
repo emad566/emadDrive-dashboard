@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('status');
             $table->timestamps();
 
-            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+//            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
 
         });
     }
