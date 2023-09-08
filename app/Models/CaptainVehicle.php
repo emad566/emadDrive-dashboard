@@ -11,29 +11,36 @@ class CaptainVehicle extends Model
     protected $guarded = [];
 
     public $with = ['vehicleMedias'];
+
     public function scopeActive($query)
     {
         return $query->where('status', true);
     }
-    /**
-     * Get captain that owns the CaptainVehicle
-     *
-     * @return void
-     */
+
+
     public function captain()
     {
         return $this->belongsTo(Captain::class);
     }
 
-
-    /**
-     * Get Vehicle Medias for the CaptainVehicle
-     *
-     * @return void
-     */
     public function vehicleMedias()
     {
         return $this->hasMany(CaptainVehicleMedia::class);
+    }
+
+    public function color()
+    {
+        return $this->hasOne(Color::class, 'id', 'color_id');
+    }
+
+    public function brand()
+    {
+        return $this->hasOne(Brand::class, 'id', 'brand_id');
+    }
+
+    public function carmodel()
+    {
+        return $this->hasOne(Brand::class, 'id', 'carmodel_id');
     }
 
 }

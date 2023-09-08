@@ -7,19 +7,23 @@
 
         <x-form.input required="*" wire:model.blur="registration_plate" name="registration_plate" :label="__('Registration plate')" :placeholder="__('Registration plate')"/>
 
-        <x-form.select required="*" wire:model.blur="brand" name="brand" :label="__('Brand')">
-            <x-options.options :options="$brands" />
-        </x-form.select>
+        <x-form.select2 inputId="brandsId" :select2="true" wire:model.live="brand_id" name="brand_id" :label="__('Brand')" wrapperClasses="col-lg-4 col-md-6 col-sm-12">
+            <x-options.options-key :trans="false" :options="$brands" val="id" :text="$langName" />
+        </x-form.select2>
 
-        <x-form.input required="*" wire:model.blur="model" name="model" :label="__('Model')" :placeholder="__('Model')"/>
+        <x-form.select2 inputId="brandsId" :select2="true" wire:model.live="carmodel_id" name="carmodel_id" :label="__('Model')" wrapperClasses="col-lg-4 col-md-6 col-sm-12">
+            <x-options.options-key :trans="false" :options="$carmodels" val="id" :text="$langName" />
+        </x-form.select2>
+
 
         <x-form.select required="*" wire:model.blur="model_date" name="model_date" :label="__('Model date')">
             <x-options.options :options="$years" />
         </x-form.select>
 
-        <x-form.select required="*" wire:model.blur="color" name="color" :label="__('Color')">
-            <x-options.options :options="$colors" />
-        </x-form.select>
+        <x-form.select2 inputId="colorsId" :select2="true" wire:model.live="color_id" name="color_id" :label="__('Color')" wrapperClasses="col-lg-4 col-md-6 col-sm-12">
+            <x-options.options-key :trans="false" :options="$colors" val="id" :text="$langName" />
+        </x-form.select2>
+
         <x-form.date  wire:model.live="vehicle_license_expire_date" name="vehicle_license_expire_date" :label="__('Vehicle license expire date')" :placeholder="__('Vehicle license expire date')" />
     </div>
 

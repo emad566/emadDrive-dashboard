@@ -18,10 +18,10 @@ class CreateCaptainVehiclesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('captain_id');
             $table->string('registration_plate')->nullable();
-            $table->string('brand')->nullable();
-            $table->string('model')->nullable();
+            $table->bigInteger('brand_id')->nullable();
+            $table->bigInteger('carmodel_id')->nullable();
             $table->string('model_date')->nullable();
-            $table->string('color')->nullable();
+            $table->bigInteger('color_id')->nullable();
             $table->string('vehicle_front')->nullable();
             $table->string('vehicle_back')->nullable();
             $table->string('vehicle_left')->nullable();
