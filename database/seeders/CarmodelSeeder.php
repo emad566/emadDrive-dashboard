@@ -9,6 +9,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\App;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class CarmodelSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class CarmodelSeeder extends Seeder
         foreach (Brand::all() as $brand){
             for($i=0; $i<7; $i++){
                 Carmodel::create([
-                    'ar_name'=>fake()->unique()->name(),
+                    'ar_name'=>GoogleTranslate::trans(fake()->unique()->name(), 'ar'),
                     'en_name'=>fake()->unique()->name(),
                     'brand_id'=>$brand->id,
                     'status'=>1,

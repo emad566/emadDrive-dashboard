@@ -19,10 +19,10 @@ class BrandSeeder extends Seeder
         App::setLocale('ar');
         foreach (OptionsController::BRANDS as $brand){
             Brand::create([
-               'ar_name'=>GoogleTranslate::trans($brand, 'ar'),
-               'en_name'=>$brand,
-               'icon'=>'',
-               'status'=>1,
+                'ar_name'=>GoogleTranslate::trans($brand, 'ar'),
+                'en_name'=>$brand,
+                'icon'=>'',
+                'status'=>1,
             ]);
         }
     }
