@@ -39,4 +39,3 @@ Route::middleware(['auth', 'scope:allow-captain'])->get('/user', function (Reque
 
 Route::post('upload-files', [FileController::class, 'uploadFile']);
 Route::delete('delete-uploaded-files', [FileController::class, 'deleteUploadFile']);
-Route::post('delete-uploaded-files', [FileController::class, 'deleteUploadFile']);
