@@ -15,7 +15,7 @@
         @for($i=0; $i<count($options); $i++)
             @php $checked = $values[$i] === $checkedValue? 'checked="checked"' : ''  @endphp
             <label class="radio radio-lg">
-                <input wire:model.lazy="gender" type="radio" value="{{ $values[$i] }}" {{ $checked }} name="{{ $name }}" class="transition-all duration-1000"/>
+                <input wire:model.blur="gender" type="radio" value="{{ $values[$i] }}" {{ $checked }} name="{{ $name }}" class="transition-all duration-1000"/>
                 <span></span>
                 {{ $options[$i] }}
             </label>

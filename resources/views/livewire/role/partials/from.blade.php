@@ -1,14 +1,14 @@
-<form x-on:submit.prevent="save" x-show="show">
+<form wire:submit="save"   x-show="show" x-on:alert-saved.window="show=false">
     <x-modal.dialog>
         <x-slot name="title">
             {{__($roleEdit?->id? 'Edit' : 'Add')}} {{ __('Role') }}:
             <span x-text="name"></span>
         </x-slot>
         <x-slot name="content">
-            <i class="fas fa-spinner rotate" wire:loading ></i>
+            <x-snippets.loading wire:target="edit" />
 
             <div class="row">
-                <x-form.input x-model="name" name="roleEdit.name" :label="__('Full Name')" :placeholder="__('Full Name')" wrapperClasses="col-12"/>
+                <x-form.input x-model="name" name="name" :label="__('Full Name')" :placeholder="__('Full Name')" wrapperClasses="col-12"/>
             </div>
 
             @include('livewire.role.partials.select-permissions')
