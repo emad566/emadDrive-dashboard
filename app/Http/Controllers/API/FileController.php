@@ -18,7 +18,6 @@ class FileController extends Controller
      */
     public function uploadFile(Request $request)
     {
-//        return $request->all();
         $validatedData = Validator::make($request->all(), [
             'file' => 'required',
             'path' => 'required',
