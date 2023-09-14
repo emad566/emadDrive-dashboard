@@ -11,3 +11,11 @@
         </tbody>
     </table>
 </div>
+
+
+<style>
+    nav[role="navigation"] .select-none{
+        background-color: #0a53be !important;
+        color: white !important;
+    }
+</style>

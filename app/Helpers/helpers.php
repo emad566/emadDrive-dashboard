@@ -3,6 +3,9 @@
 use App\Models\Language;
 use Carbon\Carbon;
 
+function getLocal(){
+    return session()->get('locale')?? 'en';
+}
 
 if (!function_exists('CalcMinutesOfTrip')) {
 	function CalcMinutesOfTrip($start_date)

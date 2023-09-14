@@ -67,6 +67,12 @@ class ConstantController extends Controller
     const SCHEDULE_TRIP = 'schedule-trip';
     const NORMAL_TRIP = 'normal-trip';
 
+
+
+    ############ START:: File Paths ################
+    const NO_IMAGE = 'assets/images/logo-icon.png';
+    ############ END:: File Paths ##################
+
     ############ Account Status ##################
     const ACTIVE = 1;
     const FREEZING = 2;

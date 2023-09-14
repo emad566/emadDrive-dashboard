@@ -20,7 +20,6 @@
 
     <div class="scroll scroll-pull w-100 h-300px" data-scroll="true" data-suppress-scroll-x="false" data-swipe-easing="true" >
         <div class="pl-10 " >
-{{--            <div x-text="selectedPermissions" class="text-right w-100"></div>--}}
             <x-snippets.checkbox-cat-list :items="$permissions"/>
         </div>
     </div>

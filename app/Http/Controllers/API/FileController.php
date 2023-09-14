@@ -42,7 +42,7 @@ class FileController extends Controller
     public function deleteUploadFile(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
-            'files' => 'required|array',
+                'files' => 'required|array',
         ]);
         if ($validatedData->fails()) {
             return $this->errorStatus($validatedData->errors()->first());

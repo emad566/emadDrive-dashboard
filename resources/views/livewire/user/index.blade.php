@@ -54,7 +54,7 @@
 {{--                        <x-table.cell>{{ \Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</x-table.cell>--}}
                         <x-table.cell>{{ $user->created_at }}</x-table.cell>
                         <x-table.cell>
-                            <x-form.switch  wire:click="status_switch({{ __($user->id) }})" >{{ $user->status_switch }}</x-form.switch>
+                            <x-form.switch :checked="$user->status_switch" wire:click="status_switch({{ __($user->id) }})" >1</x-form.switch>
                         </x-table.cell>
                         <x-table.cell>
                             <x-snippets.online icon="warning">{{ \Carbon\Carbon::parse($user->login)->diffForHumans() }}</x-snippets.online>

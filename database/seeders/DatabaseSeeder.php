@@ -2,10 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Permission;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,10 +18,16 @@ class DatabaseSeeder extends Seeder
 //             'email' => 'test@example.com',
 //         ]);
 
-        for($i=0; $i<500; $i++){
-            Permission::create([
-                'name'=>generateRandomCode('user')
-            ]);
-        }
+//        for($i=0; $i<500; $i++){
+//            Permission::create([
+//                'name'=>generateRandomCode('user')
+//            ]);
+//        }
+
+        $this->call([
+            BrandSeeder::class,
+            ColorSeeder::class,
+            CarmodelSeeder::class,
+        ]);
     }
 }

@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Livewire\permission;
+namespace App\Livewire\permission;
 use App\Http\Controllers\General\ConstantController;
 use App\Http\Controllers\General\OptionsController;
 use App\Http\Traits\Toast;
 use App\Models\Permission;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Index extends Component
+class Permissions extends Component
 {
     use WithPagination;
     use Toast;
@@ -42,10 +41,10 @@ class Index extends Component
         $this->show_modal = true;
     }
 
-    public function destroy(permission $permission)
+    public function destroy(Permission $permission)
     {
         $permission->delete();
-        $this->dispatchBrowserEvent('alert-delete');
+        $this->dispatch('alert-delete');
     }
 
     public function create()
@@ -69,6 +68,8 @@ class Index extends Component
         $this->permissionEdit->save();
         $this->cancel();
         $this->alertSuccess(__('Saved'));
+        $this->dispatch('alert-saved');
+        $this->all_permissions = Permission::all();
     }
 
     public function cancel()
@@ -115,10 +116,10 @@ class Index extends Component
     public function render()
     {
         if($this->show_modal){
-            $this->dispatchBrowserEvent('alert-show-model');
+            $this->dispatch('alert-show-model');
         }
 
-        return view('livewire.permission.index', [
+        return view('livewire.permission.permission', [
             'permissions'=> $this->search()
         ]);
 
