@@ -29,7 +29,8 @@
 
             <!-- settings -->
             <x-aside.menu title="Settings" iconName="fas fa-cogs" route="settings*">
-                <x-aside.link link="dashboard/settings" route="settings.index" title="Settings" iconSize="md" iconName="fas fa-cogs"/>
+                <x-aside.link link="dashboard/settings" route="settings.index" title="Settings" iconSize="md" iconName="fas fa-cog"/>
+                <x-aside.link link="dashboard/settings/management'" route="settings.management" title="Settings Management" iconSize="md" iconName="fas fa-cogs"/>
 
             </x-aside.menu>
             <!-- /settings -->

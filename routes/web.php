@@ -12,9 +12,9 @@ use App\Livewire\permission\Permissions;
 use App\Livewire\Property\Properties;
 use App\Livewire\role\Roles;
 use App\Livewire\Settings\SettingsComponent;
+use App\Livewire\SettingsManagement\SettingsManagementComponent;
 use App\Livewire\user\Users;
 use App\Livewire\VehicleClass\VehicleClassComponent;
-use http\Env\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +53,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'settings'], function () {
         Route::get('/', SettingsComponent::class)->name('settings.index');
+        Route::get('/management', SettingsManagementComponent::class)->name('settings.management');
     });
 
     Route::group(['prefix' => 'vehicles'], function (){
